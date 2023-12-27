@@ -46,6 +46,71 @@
     <meta name="generator" content="pandoc" />
   <title>DevOps summary</title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 </head>
 <body>
 
@@ -85,6 +150,22 @@
         id="toc-reliablility-engineering">Reliablility
         Engineering</a></li>
         <li><a href="#devsecops" id="toc-devsecops">DevSecOps</a></li>
+        </ul></li>
+        <li><a href="#container-technology"
+        id="toc-container-technology">2. Container Technology</a>
+        <ul>
+        <li><a href="#virualisatoin-vms-and-containers"
+        id="toc-virualisatoin-vms-and-containers">2.1 Virualisatoin:
+        VM’s and containers</a></li>
+        <li><a href="#container-technologies"
+        id="toc-container-technologies">2.2 Container
+        Technologies</a></li>
+        <li><a href="#container-managementorchestration"
+        id="toc-container-managementorchestration">2.3 Container
+        Management/Orchestration</a></li>
+        <li><a href="#container-ecosystem-discussion"
+        id="toc-container-ecosystem-discussion">2.4 Container Ecosystem
+        Discussion</a></li>
         </ul></li>
         </ul></li>
         </ul>
@@ -246,6 +327,272 @@ earlier in lifecycle.</li>
 your system</li>
 </ul></li>
 </ul>
+<h2 id="container-technology">2. Container Technology</h2>
+<h3 id="virualisatoin-vms-and-containers">2.1 Virualisatoin: VM’s and
+containers</h3>
+<p><strong>Why is there a need to containerize testing and
+deployment?</strong></p>
+<ul>
+<li>Operation teams must set-up a variety of different runtime engines,
+deal with versionning, …</li>
+<li>No ability to constrain resources consumed by a single service
+instance</li>
+<li>Lack of isolation between multiple instances on the same
+machine</li>
+</ul>
+<h4 id="virtual-machine-images">Virtual Machine Images</h4>
+<ul>
+<li>✅: Encapsulation and isolation</li>
+<li>✅: Virtual hardware</li>
+<li>❌: Less efficient resource utilization</li>
+<li>❌: Slow deployments</li>
+</ul>
+<h4 id="host-virtualization-vurtual-machines-and-containers">Host
+Virtualization: Vurtual Machines and Containers</h4>
+<dl>
+<dt><strong>Hardware virtualization</strong></dt>
+<dd>
+Hypervisor arbitrates access to shared hardware. VM’s are completely
+isolated, each VM requires its own OS
+</dd>
+</dl>
+<figure>
+<img src="./img/hw-virtualization.png" alt="Hardware Virtualization" />
+<figcaption aria-hidden="true">Hardware Virtualization</figcaption>
+</figure>
+<dl>
+<dt><strong>Sofware virtualization</strong></dt>
+<dd>
+OS kernel allows multiple process spaces. Containers share the host OS
+kernel, each container has its own root file system.
+</dd>
+</dl>
+<figure>
+<img src="./img/sw-virtualization.png" alt="Software Virtualization" />
+<figcaption aria-hidden="true">Software Virtualization</figcaption>
+</figure>
+<h4 id="container-as-deployable-artifact">Container as deployable
+artifact</h4>
+<figure>
+<img src="./img/container-architecture.png"
+alt="Container architecture" />
+<figcaption aria-hidden="true">Container architecture</figcaption>
+</figure>
+<ul>
+<li>Encapsulation</li>
+<li>Isolation</li>
+<li>Resource contraints</li>
+<li>No virt hardware</li>
+<li>lightweight</li>
+<li>fast boot</li>
+</ul>
+<h3 id="container-technologies">2.2 Container Technologies</h3>
+<h4 id="lxclxd">LXC/LXD</h4>
+<p><strong>LXC</strong>: Containers build into the Linux kernel.
+Low-level and difficult to configure.</p>
+<p><strong>LXD</strong>: Next generation, build on top of LXC, locked in
+the Canonical ecosystem.</p>
+<h4 id="docker">Docker</h4>
+<ul>
+<li>Can be thought of as a software logistics provider tool (installing,
+removeing, upgrading and running software)</li>
+<li>Docker CLI + Deamon
+<ul>
+<li>Builds images, runs and manages containers + REST API</li>
+<li>Containers can only access their own memory and resources</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/docker-architecture.png" alt="Docker Architecture" />
+<figcaption aria-hidden="true">Docker Architecture</figcaption>
+</figure>
+<p>Container = software that has to get started</p>
+<p>Container-image = All the configuration necessary to start the
+container</p>
+<h5 id="handling-application-dependencies">Handling application
+dependencies</h5>
+<p>Without containers, application use the same dependencies (the ones
+located on the host computer). This can become problematic if different
+applications require different versions of the dependencies.</p>
+<p>When using docker, every container will have it’s own copy of the
+required dependencies.</p>
+<h5 id="namespaces-environment-independence">Namespaces / Environment
+independence</h5>
+<ul>
+<li>Every running program or container has a unique <em>PID</em></li>
+<li>PID namespace is set of unique numbers that identify processes
+<ul>
+<li>Host can have multiple PID namespaces</li>
+<li>Each PID namespace contains its own PID’s</li>
+<li>Docker created new PID namespace for each container</li>
+</ul></li>
+<li>Docker provides <strong>environment independence</strong>
+<ul>
+<li>Within docker, you can run everything independent of other processes
+on the computer (eg: you don’t have to care about existing PID’s or
+other open ports on system)</li>
+</ul></li>
+</ul>
+<h5 id="environment-agnostic">Environment-Agnostic</h5>
+<ol type="1">
+<li>Read-only file systems
+<ul>
+<li>Attacker can not compromise files in the container</li>
+<li>Confidence container will not change after changes to the files it
+contains</li>
+</ul></li>
+<li>Environment variable injection
+<ul>
+<li>Docker <code>env</code> command can be used to inject variables
+(like credentials) into the container</li>
+</ul></li>
+<li>Volumes</li>
+</ol>
+<h5 id="container-states">Container states</h5>
+<figure>
+<img src="./img/container-states.png" alt="Docker container states" />
+<figcaption aria-hidden="true">Docker container states</figcaption>
+</figure>
+<h5 id="os-layers-in-containers">OS layers in containers</h5>
+<dl>
+<dt><strong>Why is there an OS-layer in a docker container</strong></dt>
+<dd>
+Containers contain a very minimalistic version of an OS. This layer is
+called the <code>Base Layer</code>. This layer contains essentials to
+run the application (like a file system, network, …). Developers can
+choose which Base they want (centos, busybox, scratch, …)
+</dd>
+</dl>
+<p>Windows hosts can also have an additional layer for a hypervisor, in
+this case, every container receives its own Hyper-V kernel.</p>
+<figure>
+<img src="./img/docker-hyper-v.png"
+alt="Docker container with Hyper-V" />
+<figcaption aria-hidden="true">Docker container with
+Hyper-V</figcaption>
+</figure>
+<blockquote>
+<p>💡: Containers with Hyper-V are also a bit safer. When an attacker
+gets access to the kernel, it will only access the virtual Hyper-V
+kernel.</p>
+</blockquote>
+<h5 id="building-container-with-dockerfile">Building container with
+Dockerfile</h5>
+<p>Containers can be made using a <code>Dockerfile</code> configuration
+file</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>FROM ubuntu:14.04       // Base image</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>COPY html /var/www/html // Copy files from host to container</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ADD web-page-config.tar // Similar to COPY bur for tar and remote URL</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ENV APACHE_LOG_DIR /var/log/apahce    // Set env varialbe</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>USER 73                 // Set userid in the image</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>EXPOSE 7373/udp 8080    // Expose network ports</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>RUN apt update -y       // Run bash command</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ENTRYPOINT [&quot;echo&quot;, &quot;Dockerfile demo&quot;]  // Run when container starts</span></code></pre></div>
+<h5 id="container-vs-image">Container vs Image</h5>
+<p>When starting a container from an image, Docker engine will add
+another layer. This layer will store information added to the container
+while it was running. If container gets restarted this information will
+be gone again.</p>
+<h5 id="union-file-system">Union file system</h5>
+<p>Some layers in a docker image (like the base layers) have their own
+read-only file-system. On top of that, Docker Engine adds another
+read-write file-system when building the container. These different
+layers get merged into one virtual layer (=
+<strong>UnionFS</strong>).</p>
+<figure>
+<img src="./img/unionFS.png" alt="UnionFS" />
+<figcaption aria-hidden="true">UnionFS</figcaption>
+</figure>
+<dl>
+<dt><strong>Copy-on-write</strong></dt>
+<dd>
+Only copy file to upper layer that have been modified, this reduces
+space and startup time.
+</dd>
+</dl>
+<h3 id="container-managementorchestration">2.3 Container
+Management/Orchestration</h3>
+<p><strong>What does an orchestration framework do?</strong></p>
+<p>It automates deployment, interconnection, scaling and maintenance of
+multiple containers on a cluster of nodes.</p>
+<p>Some container orchestration systems:</p>
+<ul>
+<li>Kubernetes</li>
+<li>Docker orchestration</li>
+<li>Amazon EC2</li>
+</ul>
+<h3 id="container-ecosystem-discussion">2.4 Container Ecosystem
+Discussion</h3>
+<h4 id="low-level">Low-level</h4>
+<ul>
+<li><strong>Low-level runtime</strong>:
+<ul>
+<li>Can: spin up a container and connect it to existing network</li>
+<li>Can’t: create network, manage images, prepare environment for
+container and manage local/persistent storage</li>
+</ul></li>
+<li>Main approaches (OCI runtime-spec compatible)
+<ul>
+<li>runc: cli tools for spanning and running OS-level virt
+container</li>
+<li>kata-runtime: cli tool for spanning hardare-virt container (focus:
+security)</li>
+</ul></li>
+</ul>
+<h4 id="high-level-runtime">High-level runtime</h4>
+<p><strong>High-level runtime</strong>: deals with creating the network,
+managing images, perparing environment, and managing local/persistent
+storage</p>
+<ul>
+<li>Main approaches (CRI-compatible)
+<ul>
+<li>Containerd: controlled by CNCF</li>
+<li>CRI-O: bridge between Kubernetes and OCI-compliant runtimes by
+RedHat (default in OpenShift)</li>
+<li>Docker</li>
+</ul></li>
+</ul>
+<h4 id="high-level-management">High-level management</h4>
+<p><strong>High-level container management</strong>: deals with
+orchestrating containers on infrastructure</p>
+<ul>
+<li>Main approaches:
+<ul>
+<li>Kubernetes (<em>de-facto</em>)</li>
+<li>Docker</li>
+<li>Podman (RedHat)</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/container-ecosystem.png"
+alt="Current container ecosystem" />
+<figcaption aria-hidden="true">Current container ecosystem</figcaption>
+</figure>
+<h4 id="conclusion">Conclusion</h4>
+<ul>
+<li>Container: go-to for micro-services
+<ul>
+<li>Rapid scaling</li>
+<li>lightweight</li>
+<li>Can run anywhere</li>
+</ul></li>
+<li>Container tech options
+<ul>
+<li>Dockerfiles</li>
+<li>Docker compose</li>
+</ul></li>
+<li>Container orchestration
+<ul>
+<li>Kubernetes is the de-facto standard</li>
+</ul></li>
+<li>Fractured ecosystem</li>
+</ul>
+<hr />
             </div>
     </div>
   </div>
