@@ -167,6 +167,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-container-ecosystem-discussion">2.4 Container Ecosystem
         Discussion</a></li>
         </ul></li>
+        <li><a href="#kubernetes" id="toc-kubernetes">3. Kubernetes</a>
+        <ul>
+        <li><a href="#decoupled-infrastructure-and-scaling"
+        id="toc-decoupled-infrastructure-and-scaling">3.1 Decoupled
+        infrastructure and scaling</a></li>
+        <li><a href="#kubernetes-key-concepts"
+        id="toc-kubernetes-key-concepts">3.2 Kubernetes Key
+        Concepts</a></li>
+        <li><a href="#kubernetes-architecture"
+        id="toc-kubernetes-architecture">3.3 Kubernetes
+        Architecture</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -593,6 +605,116 @@ alt="Current container ecosystem" />
 <li>Fractured ecosystem</li>
 </ul>
 <hr />
+<h2 id="kubernetes">3. Kubernetes</h2>
+<dl>
+<dt><strong>Kubernetes</strong></dt>
+<dd>
+Orchestration technology that abstracts the underlying hardware of the
+nodes and provides a uniform interface for workload to be deployed and
+to consume the shared resource pool.
+</dd>
+</dl>
+<blockquote>
+<p>💡: Kubernetes works <strong>declarative</strong> -&gt; you declare
+what you want and kubernetes figures out the steps to get there</p>
+</blockquote>
+<h3 id="decoupled-infrastructure-and-scaling">3.1 Decoupled
+infrastructure and scaling</h3>
+<ul>
+<li>All services within kubernetes are <strong>load balanced</strong>
+-&gt; easy to upscale</li>
+<li><strong>Self-healing</strong> and seamless upgrades and
+rollbacks</li>
+<li>Auto schedule pods based on their resource needs</li>
+<li>Autoscale workloads: makes more instances of container if
+needed</li>
+<li>Blue/green deployment: runs two environments at once.
+<ul>
+<li>Blue: live environment</li>
+<li>Green: Once new software is ready, switch traffic to green, and blue
+becomes idle.</li>
+</ul></li>
+<li>Fire off jobs and schedules cronjobs (eg. auto remove n-elements
+from log file after n minutes)</li>
+<li>Manage stateless and stateful apps</li>
+<li>! use the same API across bare metal and every cloud provider</li>
+</ul>
+<h3 id="kubernetes-key-concepts">3.2 Kubernetes Key Concepts</h3>
+<h4 id="pods">Pods</h4>
+<ul>
+<li>Smallest unit of work of Kubernetes</li>
+<li>Pods can contain one or more containers, they share volumes,
+network, namespace and are part of a single context.</li>
+<li>Serve as a unit of deployment, horizontal scaling and replication
+<ul>
+<li>Pods should remain small, usually a main containers per pod plus
+required sidecar containers</li>
+</ul></li>
+<li>Are REST objects</li>
+<li>Are Ephemeral (they can be destroyed anytime and not have fixed
+network addresses)</li>
+<li>Can have labels, specifying attributes meaningful to user</li>
+</ul>
+<figure>
+<img src="./img/pod.png" alt="Pod architecture" />
+<figcaption aria-hidden="true">Pod architecture</figcaption>
+</figure>
+<h4 id="services">Services</h4>
+<ul>
+<li>Abstraction which defines a logical set of pods and a policy by
+which to access them</li>
+<li>Durable resource (no dynamic startups and shutdowns)
+<ul>
+<li>Static cluster IP</li>
+<li>static namespaced DNS name</li>
+</ul></li>
+<li>Services are also REST objects</li>
+<li>Services is an internal load balancer to pods</li>
+</ul>
+<figure>
+<img src="./img/k8s-services.png" alt="Kubernetes services" />
+<figcaption aria-hidden="true">Kubernetes services</figcaption>
+</figure>
+<dl>
+<dt><strong>Service registry</strong></dt>
+<dd>
+Database of services, their instances and their locations. Instances are
+registered on startup and removed on shutdown.
+</dd>
+</dl>
+<h5 id="zero-downtime-upgrade-techniques">Zero-downtime upgrade
+techniques</h5>
+<ol type="1">
+<li><p>Rolling update</p>
+<ul>
+<li><figure>
+<img src="./img/service-rolling-update.png" alt="Rolling update" />
+<figcaption aria-hidden="true">Rolling update</figcaption>
+</figure></li>
+</ul></li>
+<li><p>Canary release: Have a small numbers of users test the new
+version</p>
+<ul>
+<li><figure>
+<img src="./img/service-canary-release.png" alt="Canary release" />
+<figcaption aria-hidden="true">Canary release</figcaption>
+</figure></li>
+</ul></li>
+<li><p>A/B testing: Users randomly get a version, collect business
+metrics (rather than technical testing)</p>
+<ul>
+<li><figure>
+<img src="./img/service-a-b-testing.png" alt="A/B testing" />
+<figcaption aria-hidden="true">A/B testing</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h3 id="kubernetes-architecture">3.3 Kubernetes Architecture</h3>
+<figure>
+<img src="./img/kubernetes-architecture.png"
+alt="Kubernetes Architecture" />
+<figcaption aria-hidden="true">Kubernetes Architecture</figcaption>
+</figure>
             </div>
     </div>
   </div>

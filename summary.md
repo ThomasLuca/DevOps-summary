@@ -64,7 +64,7 @@ This approach led to a lot of *operation mismatch*:
 ### CI/CD Tooling
 
 - **Version control**: Git, BitBucket
-- **CI systems**: Jenkins, TravisCI 
+- **CI systems**: Jenkins, TravisCI
 - **Build**: Make, Maven, Packer
 - **Test**: Junit, Cucumber
 - **Artifact repository**: Dockerhub, Artifactory
@@ -116,7 +116,6 @@ Extension of DevOps that includes security from the get-go
 - Operation teams must set-up a variety of different runtime engines, deal with versionning, ...
 - No ability to constrain resources consumed by a single service instance
 - Lack of isolation between multiple instances on the same machine
-
 
 #### Virtual Machine Images
 
@@ -186,8 +185,8 @@ When using docker, every container will have it's own copy of the required depen
   - Docker created new PID namespace for each container
 - Docker provides **environment independence**
   - Within docker, you can run everything independent of other processes on the computer (eg: you don't have to care about existing PID's or other open ports on system)
- 
-#####  Environment-Agnostic
+
+##### Environment-Agnostic
 
 1. Read-only file systems
     - Attacker can not compromise files in the container
@@ -301,4 +300,69 @@ Some container orchestration systems:
 - Fractured ecosystem
 
 ---
+
+## 3. Kubernetes
+
+**Kubernetes**
+: Orchestration technology that abstracts the underlying hardware of the nodes and provides a uniform interface for workload to be deployed and to consume the shared resource pool.
+
+> 💡: Kubernetes works **declarative** -> you declare what you want and kubernetes figures out the steps to get there
+
+### 3.1 Decoupled infrastructure and scaling
+
+- All services within kubernetes are **load balanced** -> easy to upscale
+- **Self-healing** and seamless upgrades and rollbacks
+- Auto schedule pods based on their resource needs
+- Autoscale workloads: makes more instances of container if needed
+- Blue/green deployment: runs two environments at once.
+  - Blue: live environment
+  - Green: Once new software is ready, switch traffic to green, and blue becomes idle.
+- Fire off jobs and schedules cronjobs (eg. auto remove n-elements from log file after n minutes)
+- Manage stateless and stateful apps
+- ! use the same API across bare metal and every cloud provider
+
+### 3.2 Kubernetes Key Concepts
+
+#### Pods
+
+- Smallest unit of work of Kubernetes
+- Pods can contain one or more containers, they share volumes, network, namespace and are part of a single context.
+- Serve as a unit of deployment, horizontal scaling and replication
+  - Pods should remain small, usually a main containers per pod plus required sidecar containers
+- Are REST objects
+- Are Ephemeral (they can be destroyed anytime and not have fixed network addresses)
+- Can have labels, specifying attributes meaningful to user
+
+![Pod architecture](./img/pod.png)
+
+#### Services
+
+- Abstraction which defines a logical set of pods and a policy by which to access them
+- Durable resource (no dynamic startups and shutdowns)
+  - Static cluster IP
+  - static namespaced DNS name
+- Services are also REST objects
+- Services is an internal load balancer to pods
+
+![Kubernetes services](./img/k8s-services.png)
+
+**Service registry**
+: Database of services, their instances and their locations. Instances are registered on startup and removed on shutdown.
+
+##### Zero-downtime upgrade techniques
+
+1. Rolling update
+  
+    - ![Rolling update](./img/service-rolling-update.png)
+
+2. Canary release: Have a small numbers of users test the new version
+    - ![Canary release](./img/service-canary-release.png)
+
+3. A/B testing: Users randomly get a version, collect business metrics (rather than technical testing)
+    - ![A/B testing](./img/service-a-b-testing.png)
+
+### 3.3 Kubernetes Architecture
+
+![Kubernetes Architecture](./img/kubernetes-architecture.png)
+
 
