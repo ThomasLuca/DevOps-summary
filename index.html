@@ -1,0 +1,255 @@
+<!doctype html>
+<html >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <title>DevOps summary</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">DevOps summary</span>
+        <ul class="nav pull-right doc-info">
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#summary-devops" id="toc-summary-devops">Summary
+        DevOps</a>
+        <ul>
+        <li><a href="#what-is-devops" id="toc-what-is-devops">1. What is
+        DevOps?</a>
+        <ul>
+        <li><a href="#traditional-development-teams-before-devops"
+        id="toc-traditional-development-teams-before-devops">Traditional
+        development teams (before DevOps)</a></li>
+        <li><a href="#devops-core-values"
+        id="toc-devops-core-values">DevOps core values</a></li>
+        <li><a href="#continuous-deliverydeployment"
+        id="toc-continuous-deliverydeployment">Continuous
+        delivery/deployment</a></li>
+        <li><a href="#cicd-tooling" id="toc-cicd-tooling">CI/CD
+        Tooling</a></li>
+        <li><a href="#reliablility-engineering"
+        id="toc-reliablility-engineering">Reliablility
+        Engineering</a></li>
+        <li><a href="#devsecops" id="toc-devsecops">DevSecOps</a></li>
+        </ul></li>
+        </ul></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+
+      
+      <h1 id="summary-devops">Summary DevOps</h1>
+<h2 id="what-is-devops">1. What is DevOps?</h2>
+<p>Practice of operations and development engineers participating
+<em>together</em> in the entire service lifecycle from design through
+development to production support. Whit the goal of improving and
+shortening the systems development lifecycle.</p>
+<figure>
+<img src="./img/devops.png" alt="Devops lifecycle" />
+<figcaption aria-hidden="true">Devops lifecycle</figcaption>
+</figure>
+<h3 id="traditional-development-teams-before-devops">Traditional
+development teams (before DevOps)</h3>
+<ul>
+<li>Development teams
+<ul>
+<li>Requirement analysis</li>
+<li>Software design</li>
+<li>Planning</li>
+<li>Software implementation</li>
+<li>Testing</li>
+</ul></li>
+<li>Operation teams
+<ul>
+<li>Receives application from dev team</li>
+<li>Deploy app on infrastructure</li>
+<li>Manage infrastructure</li>
+<li>Monitoring</li>
+<li>Support</li>
+</ul></li>
+</ul>
+<p>This approach led to a lot of <em>operation mismatch</em>:</p>
+<ul>
+<li>Defects released to production</li>
+<li>Hard to diagnose issues quickly</li>
+<li>Finger pointing</li>
+<li>…</li>
+</ul>
+<h3 id="devops-core-values">DevOps core values</h3>
+<ol type="1">
+<li>Culture and People &gt; Process and tools
+<ul>
+<li>Poeple become product owners, give them trust and
+responsibility</li>
+</ul></li>
+<li>Automation (infrastructure as code)
+<ul>
+<li>Automation is critical as things need to move fast</li>
+</ul></li>
+<li>Measurement (measure everything)
+<ul>
+<li>Knowledge of system is key</li>
+<li>Know when and why things go wrong</li>
+</ul></li>
+<li>Sharing - collaboration - feedback
+<ul>
+<li>Sharing knowledge between Devs and Ops</li>
+</ul></li>
+</ol>
+<h3 id="continuous-deliverydeployment">Continuous
+delivery/deployment</h3>
+<ul>
+<li><strong>Continuous integration</strong>: build and test</li>
+<li><strong>Continuous delivery</strong>: deploy and integration
+test</li>
+<li><strong>Continuous deployment</strong>: build, test, deploy,
+integration test and deploy to prod</li>
+</ul>
+<blockquote>
+<p>💡: Best practices</p>
+<ul>
+<li>Build should pass within 5 min (☕ coffee test)</li>
+<li>Commit small bits</li>
+<li>Do not leave build broken</li>
+<li>Deployment should go to a copy of production (🚧 staging) before
+production</li>
+</ul>
+</blockquote>
+<figure>
+<img src="./img/continuous-development-deployment.png"
+alt="Continuous delivery/deployment" />
+<figcaption aria-hidden="true">Continuous
+delivery/deployment</figcaption>
+</figure>
+<h4 id="automated-testing-for-continuous-deployment">Automated testing
+for continuous deployment</h4>
+<ul>
+<li>Unit tests: Test individual components of code</li>
+<li>Integration tests: Test how components work together</li>
+<li>Crossbrowser, performance, security tests</li>
+</ul>
+<h3 id="cicd-tooling">CI/CD Tooling</h3>
+<ul>
+<li><strong>Version control</strong>: Git, BitBucket</li>
+<li><strong>CI systems</strong>: Jenkins, TravisCI</li>
+<li><strong>Build</strong>: Make, Maven, Packer</li>
+<li><strong>Test</strong>: Junit, Cucumber</li>
+<li><strong>Artifact repository</strong>: Dockerhub, Artifactory</li>
+<li><strong>Deployment</strong>: Ansible</li>
+</ul>
+<h3 id="reliablility-engineering">Reliablility Engineering</h3>
+<p>The goal is to have no down-time, design patterns exist for creating
+resilient systems.</p>
+<p>The key is to: Build - Measure - Learn - Repeat!</p>
+<h4 id="chaos-engineering">Chaos Engineering</h4>
+<p>Chaos Engineering is a discipline that aims to proactively test and
+improve a system’s resilience to unexpected and turbulent conditions. It
+involves deliberately introducing controlled and planned disruptions
+into a software or system environment to observe how the system responds
+under stress.</p>
+<dl>
+<dt><strong>Chaos monkey</strong></dt>
+<dd>
+Introduce random failures in production and see how resilient system is,
+or how fast ingeneers can act upon this problem.
+</dd>
+</dl>
+<h3 id="devsecops">DevSecOps</h3>
+<p>Extension of DevOps that includes security from the get-go</p>
+<ul>
+<li><strong>Secure Coding</strong>: Responsibility of the devs to write
+secure code.</li>
+<li><strong>Security testing tools integrated in CI/CD
+pipeline</strong>: eg. scanning dependencies/containers for
+vulnerabilities</li>
+<li><strong>Shift-left testing</strong>: Software testing is pefromed
+earlier in lifecycle.</li>
+</ul>
+<h4 id="tools-to-implement-devsecops">Tools to implement DevSecOps</h4>
+<ul>
+<li><strong>SAST - Static Applicaiton Security Testing</strong>
+<ul>
+<li>Scan proprietary/custom code for erros</li>
+<li>During the code, build and dev phases of the lifecycle</li>
+</ul></li>
+<li><strong>SCA - Software Component Analysis</strong>
+<ul>
+<li>Scan source code and libraries for known vulnerabilities</li>
+<li>Provide insight of security and licence risks</li>
+<li>Integrates seamlessly into CI/CD pipeline</li>
+</ul></li>
+<li><strong>IAST - Interactive Application Security Testing</strong>
+<ul>
+<li>Work in the background during tests to analyze runtime behavior</li>
+<li>Observe request/response integration</li>
+<li>Detect runtime vulnerabilities</li>
+</ul></li>
+<li><strong>DAST - Dynamic Application Security Testing</strong>
+<ul>
+<li>Automated black box testing -&gt; mimic how hacker would approach
+your system</li>
+</ul></li>
+</ul>
+            </div>
+    </div>
+  </div>
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>
