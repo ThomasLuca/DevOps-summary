@@ -913,3 +913,133 @@ license
 
 ---
 
+## 9. Software Testing
+
+Program testing goals:
+
+- Validation testing: to demonstrate that software meets requirements
+- Defect testing: to discover undesirable actions to certain inputs or to see if software does not conform to its specifications.
+
+**Input-output model for program testing**
+
+![Input-output model](./img/input-output-testing.png)
+
+**Inspections vs testing**
+
+- **Software testing**: Concerned with exercising and observing product behavior (dynamic verification)
+- **Software inspections**: Concerned with analysis of the static system representation to discover problems (static verification)
+  - Other people examining source to find anomalies and defects
+  - Does not require execution of system -> used before implementation
+  - May be used to any representation of the system (requirements, design, config, test data, ...)
+  - Benefits
+    - During testing, errors can hide other errors
+    - Incomplete system -> inspect without additional cost
+    - Detect compliance with standards, portability and maintainability
+
+![Software inspections](./img/software-inspection.png)
+
+> ⚠️: Inspections and testing are complementary, both should be used
+
+**White Box vs Black Box testing**:
+
+- White Box: Tester has knowledge about the system internals by looking at code
+- Black Box: Tester has no knowledge about internals
+
+**Code coverage**
+: Percentage of code that is covered by tests. (Note: 100% code coverage doesn't mean secure code nor that everything is tested)
+
+### 9.1 Development testing
+
+Tests carried out by the team that is developing the system.
+
+- Unit testing: Test individual methods or classes
+- Component testing: test component interfaces
+- System testing: some or all components of a system are integrated and tested as a whole.
+
+#### Automated testing
+
+- Unit test should run without manual intervention
+- Tests consist of:
+  - setup part: initialize the system with the test case (input and expected output)
+  - A call part: call object or method to be tested
+  - An assertion part: compere result from setup with the one from call
+
+#### Testing strategies
+
+- **Partition testing**: identify groups of inputs that have common characters and should be processed the same way.
+  - Input data and output results fall into different classes (all members of a class are related)
+  - Program behaves in equivalent way for each class member
+  - Test cases should be chosen from each pratition
+- **Guideline-based testing**: Use testing guidelines to choose test case
+  - Guidelines reflect previous experience of kind of error a programmer often makes
+
+#### Equivalence partitioning
+
+![Equivalence participating](./img/equivalence-partitioning.png)
+
+The blue surface means bad data. Bad input results in bad outputs.
+
+#### Testing guidelines
+
+- Sequences:
+  - Test software with sequences which have only single value
+  - Use sequence of different sized in different tests
+  - Derive test so that first, middle and last element of sequence are tested
+  - Test sequence of zero length
+- General:
+  - Choose input that force the sys to generate all error messages
+  - Design inputs that cause input buffers to overflow
+  - Repeat the same series of inputs a number of times (to check if buffers clear before new iteration)
+
+### 9.2 Test-driven development
+
+- TTD: inter-leave testing and code development
+- Write test before feature
+- Develop code incrementally, along with test for increment
+- used in Agile methods like XP
+
+![Test-driven development cycle](./img/TDD-cycle.png)
+
+1. Identify the increment
+2. Write test for functionality and implement as automated test
+3. Run the test, along with other tests
+4. Implement the functionality and re-run test
+5. All tests success? -> repeat for next chunk of functionality
+
+- ✅: Code coverage
+- ✅: Regression testing (test to check that changes did not brake previously working code)
+- ✅: simplified debugging
+- ✅: system documentation (tests themselves are a form of documentation)
+
+### 9.3 Release and User Testing
+
+#### Release testing
+
+- test a particular release of a sys that is intended for use outside of the dev team
+- goal: convince the supplier of the system that it is good enough for use
+- usually a *black-box* testing process
+
+**Release test vs System test**
+
+- A separate team should be responsible for release testing
+- In system testing, team focuses on discovering bugs (defect testing)
+- In release testing, focus on checking if requirements are met, and system is good enough for external use (validation testing)
+
+#### Rquirement-based testing
+
+Examine each requirement and develop test(s) for it.
+
+#### Performance testing
+
+To test performance and reliability. This test should reflect the profile of use of the system. Usually, performance tests involve a sequence of tests with incremental work load. It is also a good idea to perform **stress tests** to discover the limit of work load a system can manage.
+
+#### User testing
+
+Let user or consumer test by letting them provide input. There are 3 types of user testing:
+
+- **Alpha testing**: users work with dev team to test software at the dev site.
+- **Beta testing**: a release of the software is made available to users to allow them to experiment and raise problems.
+- **Acceptance testing**: customers test system and decide if it is ready to be deployed
+
+---
+

@@ -269,6 +269,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-open-source-development">8.3 Open Source
         Development</a></li>
         </ul></li>
+        <li><a href="#software-testing" id="toc-software-testing">9.
+        Software Testing</a>
+        <ul>
+        <li><a href="#development-testing"
+        id="toc-development-testing">9.1 Development testing</a></li>
+        <li><a href="#test-driven-development"
+        id="toc-test-driven-development">9.2 Test-driven
+        development</a></li>
+        <li><a href="#release-and-user-testing"
+        id="toc-release-and-user-testing">9.3 Release and User
+        Testing</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -1652,6 +1664,190 @@ components that are downloaded and used</li>
 <li>Have auditing systems in place that detect e.g. if you break the
 terms of a license</li>
 </ul>
+<hr />
+<h2 id="software-testing">9. Software Testing</h2>
+<p>Program testing goals:</p>
+<ul>
+<li>Validation testing: to demonstrate that software meets
+requirements</li>
+<li>Defect testing: to discover undesirable actions to certain inputs or
+to see if software does not conform to its specifications.</li>
+</ul>
+<p><strong>Input-output model for program testing</strong></p>
+<figure>
+<img src="./img/input-output-testing.png" alt="Input-output model" />
+<figcaption aria-hidden="true">Input-output model</figcaption>
+</figure>
+<p><strong>Inspections vs testing</strong></p>
+<ul>
+<li><strong>Software testing</strong>: Concerned with exercising and
+observing product behavior (dynamic verification)</li>
+<li><strong>Software inspections</strong>: Concerned with analysis of
+the static system representation to discover problems (static
+verification)
+<ul>
+<li>Other people examining source to find anomalies and defects</li>
+<li>Does not require execution of system -&gt; used before
+implementation</li>
+<li>May be used to any representation of the system (requirements,
+design, config, test data, …)</li>
+<li>Benefits
+<ul>
+<li>During testing, errors can hide other errors</li>
+<li>Incomplete system -&gt; inspect without additional cost</li>
+<li>Detect compliance with standards, portability and
+maintainability</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/software-inspection.png" alt="Software inspections" />
+<figcaption aria-hidden="true">Software inspections</figcaption>
+</figure>
+<blockquote>
+<p>⚠️: Inspections and testing are complementary, both should be
+used</p>
+</blockquote>
+<p><strong>White Box vs Black Box testing</strong>:</p>
+<ul>
+<li>White Box: Tester has knowledge about the system internals by
+looking at code</li>
+<li>Black Box: Tester has no knowledge about internals</li>
+</ul>
+<dl>
+<dt><strong>Code coverage</strong></dt>
+<dd>
+Percentage of code that is covered by tests. (Note: 100% code coverage
+doesn’t mean secure code nor that everything is tested)
+</dd>
+</dl>
+<h3 id="development-testing">9.1 Development testing</h3>
+<p>Tests carried out by the team that is developing the system.</p>
+<ul>
+<li>Unit testing: Test individual methods or classes</li>
+<li>Component testing: test component interfaces</li>
+<li>System testing: some or all components of a system are integrated
+and tested as a whole.</li>
+</ul>
+<h4 id="automated-testing">Automated testing</h4>
+<ul>
+<li>Unit test should run without manual intervention</li>
+<li>Tests consist of:
+<ul>
+<li>setup part: initialize the system with the test case (input and
+expected output)</li>
+<li>A call part: call object or method to be tested</li>
+<li>An assertion part: compere result from setup with the one from
+call</li>
+</ul></li>
+</ul>
+<h4 id="testing-strategies">Testing strategies</h4>
+<ul>
+<li><strong>Partition testing</strong>: identify groups of inputs that
+have common characters and should be processed the same way.
+<ul>
+<li>Input data and output results fall into different classes (all
+members of a class are related)</li>
+<li>Program behaves in equivalent way for each class member</li>
+<li>Test cases should be chosen from each pratition</li>
+</ul></li>
+<li><strong>Guideline-based testing</strong>: Use testing guidelines to
+choose test case
+<ul>
+<li>Guidelines reflect previous experience of kind of error a programmer
+often makes</li>
+</ul></li>
+</ul>
+<h4 id="equivalence-partitioning">Equivalence partitioning</h4>
+<figure>
+<img src="./img/equivalence-partitioning.png"
+alt="Equivalence participating" />
+<figcaption aria-hidden="true">Equivalence participating</figcaption>
+</figure>
+<p>The blue surface means bad data. Bad input results in bad
+outputs.</p>
+<h4 id="testing-guidelines">Testing guidelines</h4>
+<ul>
+<li>Sequences:
+<ul>
+<li>Test software with sequences which have only single value</li>
+<li>Use sequence of different sized in different tests</li>
+<li>Derive test so that first, middle and last element of sequence are
+tested</li>
+<li>Test sequence of zero length</li>
+</ul></li>
+<li>General:
+<ul>
+<li>Choose input that force the sys to generate all error messages</li>
+<li>Design inputs that cause input buffers to overflow</li>
+<li>Repeat the same series of inputs a number of times (to check if
+buffers clear before new iteration)</li>
+</ul></li>
+</ul>
+<h3 id="test-driven-development">9.2 Test-driven development</h3>
+<ul>
+<li>TTD: inter-leave testing and code development</li>
+<li>Write test before feature</li>
+<li>Develop code incrementally, along with test for increment</li>
+<li>used in Agile methods like XP</li>
+</ul>
+<figure>
+<img src="./img/TDD-cycle.png" alt="Test-driven development cycle" />
+<figcaption aria-hidden="true">Test-driven development
+cycle</figcaption>
+</figure>
+<ol type="1">
+<li>Identify the increment</li>
+<li>Write test for functionality and implement as automated test</li>
+<li>Run the test, along with other tests</li>
+<li>Implement the functionality and re-run test</li>
+<li>All tests success? -&gt; repeat for next chunk of functionality</li>
+</ol>
+<ul>
+<li>✅: Code coverage</li>
+<li>✅: Regression testing (test to check that changes did not brake
+previously working code)</li>
+<li>✅: simplified debugging</li>
+<li>✅: system documentation (tests themselves are a form of
+documentation)</li>
+</ul>
+<h3 id="release-and-user-testing">9.3 Release and User Testing</h3>
+<h4 id="release-testing">Release testing</h4>
+<ul>
+<li>test a particular release of a sys that is intended for use outside
+of the dev team</li>
+<li>goal: convince the supplier of the system that it is good enough for
+use</li>
+<li>usually a <em>black-box</em> testing process</li>
+</ul>
+<p><strong>Release test vs System test</strong></p>
+<ul>
+<li>A separate team should be responsible for release testing</li>
+<li>In system testing, team focuses on discovering bugs (defect
+testing)</li>
+<li>In release testing, focus on checking if requirements are met, and
+system is good enough for external use (validation testing)</li>
+</ul>
+<h4 id="rquirement-based-testing">Rquirement-based testing</h4>
+<p>Examine each requirement and develop test(s) for it.</p>
+<h4 id="performance-testing">Performance testing</h4>
+<p>To test performance and reliability. This test should reflect the
+profile of use of the system. Usually, performance tests involve a
+sequence of tests with incremental work load. It is also a good idea to
+perform <strong>stress tests</strong> to discover the limit of work load
+a system can manage.</p>
+<h4 id="user-testing">User testing</h4>
+<p>Let user or consumer test by letting them provide input. There are 3
+types of user testing:</p>
+<ul>
+<li><strong>Alpha testing</strong>: users work with dev team to test
+software at the dev site.</li>
+<li><strong>Beta testing</strong>: a release of the software is made
+available to users to allow them to experiment and raise problems.</li>
+<li><strong>Acceptance testing</strong>: customers test system and
+decide if it is ready to be deployed</li>
+</ul>
+<hr />
             </div>
     </div>
   </div>
