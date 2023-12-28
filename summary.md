@@ -847,3 +847,69 @@ Demonstrate that the requirements provided by the customer are the requirements 
 
 ---
 
+## 8. Design and implementation
+
+### 8.1 Implementation issues
+
+Goal: Reuse as much code as possible
+
+Issues:
+
+- Configuration management: keeping track of the many different versions of each software component in a configuration management system.
+- Host-target development: Program gets developed on different computer than it's destined to run on.
+
+#### Reuse level
+
+1. **The abstract level**: Don't reuse software directly, rather use knowledge of successful abstractions in the design of the software.
+2. **The object level**: directly use objects form a library rather than writing the code yourself
+3. **The component level**: Reuse objects and object classes
+4. **The system level (COTS)**: Reuse entire application system
+
+#### Configuration management 
+
+**Configuration management**
+: The process of managing a changing software system.
+
+Goal: support the system integration process so that devs can access the projects code and documentation in a controlled way, find out what changes have been made, and compile and link components to create a system.
+
+**Configuration management activities**
+
+- **Version management**: Keep track of different software components and coordinate development by several programmers.
+- **System integration**: Help devs define which versions of components are used, and config to build system automatically
+- **Problem tracking**: Allow users to report bugs, and let devs see who is working on which issue.
+
+![Config management tool interaction](./img/config-managemt-tool-interaction.png)
+
+#### Host-target development
+
+Development machine usually has different installed software than execution machine.
+
+![Host-target development](./img/host-target-dev.png)
+
+### 8.2 Documentation
+
+**Importance of documentation**: Most development is done in teams, so it's especially important to provide docs for API's and code. Luckily, there are tools that can generate API documentation from comments in the source code (eg. JavaDoc for codebase, Swagger for API's).
+
+### 8.3 Open Source Development
+
+An approach to software dev where code is made public for volunteers to participate.
+
+#### Open Source Licensing
+
+The source code being freely available doesn't mean that anyone can do as they wish with that code. Developers add licenses to their open source projects that explain what people can an cannot do in order to legally use the code.
+
+Popular licenses:
+
+- GPL (GNU General Public License): if use use code with GPL, you are required to make your code open source too.
+- MIT: Do whatever you want as long as you keep original copyright and license notice.
+- Apache 2.0: Do what you want, as long as you include copyright, license, notice and list changes.
+
+#### License management
+
+- Establish a system for maintaining information about open-source
+components that are downloaded and used
+- Have auditing systems in place that detect e.g. if you break the terms of a
+license
+
+---
+

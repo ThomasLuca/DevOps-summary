@@ -256,6 +256,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li><a href="#requirements-change"
         id="toc-requirements-change">7.6 Requirements change</a></li>
         </ul></li>
+        <li><a href="#design-and-implementation"
+        id="toc-design-and-implementation">8. Design and
+        implementation</a>
+        <ul>
+        <li><a href="#implementation-issues"
+        id="toc-implementation-issues">8.1 Implementation
+        issues</a></li>
+        <li><a href="#documentation" id="toc-documentation">8.2
+        Documentation</a></li>
+        <li><a href="#open-source-development"
+        id="toc-open-source-development">8.3 Open Source
+        Development</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -1552,6 +1565,93 @@ accepted</strong></p>
 <figcaption aria-hidden="true">Requirement change</figcaption>
 </figure>
 <hr />
+<h2 id="design-and-implementation">8. Design and implementation</h2>
+<h3 id="implementation-issues">8.1 Implementation issues</h3>
+<p>Goal: Reuse as much code as possible</p>
+<p>Issues:</p>
+<ul>
+<li>Configuration management: keeping track of the many different
+versions of each software component in a configuration management
+system.</li>
+<li>Host-target development: Program gets developed on different
+computer than it’s destined to run on.</li>
+</ul>
+<h4 id="reuse-level">Reuse level</h4>
+<ol type="1">
+<li><strong>The abstract level</strong>: Don’t reuse software directly,
+rather use knowledge of successful abstractions in the design of the
+software.</li>
+<li><strong>The object level</strong>: directly use objects form a
+library rather than writing the code yourself</li>
+<li><strong>The component level</strong>: Reuse objects and object
+classes</li>
+<li><strong>The system level (COTS)</strong>: Reuse entire application
+system</li>
+</ol>
+<h4 id="configuration-management">Configuration management</h4>
+<dl>
+<dt><strong>Configuration management</strong></dt>
+<dd>
+The process of managing a changing software system.
+</dd>
+</dl>
+<p>Goal: support the system integration process so that devs can access
+the projects code and documentation in a controlled way, find out what
+changes have been made, and compile and link components to create a
+system.</p>
+<p><strong>Configuration management activities</strong></p>
+<ul>
+<li><strong>Version management</strong>: Keep track of different
+software components and coordinate development by several
+programmers.</li>
+<li><strong>System integration</strong>: Help devs define which versions
+of components are used, and config to build system automatically</li>
+<li><strong>Problem tracking</strong>: Allow users to report bugs, and
+let devs see who is working on which issue.</li>
+</ul>
+<figure>
+<img src="./img/config-managemt-tool-interaction.png"
+alt="Config management tool interaction" />
+<figcaption aria-hidden="true">Config management tool
+interaction</figcaption>
+</figure>
+<h4 id="host-target-development">Host-target development</h4>
+<p>Development machine usually has different installed software than
+execution machine.</p>
+<figure>
+<img src="./img/host-target-dev.png" alt="Host-target development" />
+<figcaption aria-hidden="true">Host-target development</figcaption>
+</figure>
+<h3 id="documentation">8.2 Documentation</h3>
+<p><strong>Importance of documentation</strong>: Most development is
+done in teams, so it’s especially important to provide docs for API’s
+and code. Luckily, there are tools that can generate API documentation
+from comments in the source code (eg. JavaDoc for codebase, Swagger for
+API’s).</p>
+<h3 id="open-source-development">8.3 Open Source Development</h3>
+<p>An approach to software dev where code is made public for volunteers
+to participate.</p>
+<h4 id="open-source-licensing">Open Source Licensing</h4>
+<p>The source code being freely available doesn’t mean that anyone can
+do as they wish with that code. Developers add licenses to their open
+source projects that explain what people can an cannot do in order to
+legally use the code.</p>
+<p>Popular licenses:</p>
+<ul>
+<li>GPL (GNU General Public License): if use use code with GPL, you are
+required to make your code open source too.</li>
+<li>MIT: Do whatever you want as long as you keep original copyright and
+license notice.</li>
+<li>Apache 2.0: Do what you want, as long as you include copyright,
+license, notice and list changes.</li>
+</ul>
+<h4 id="license-management">License management</h4>
+<ul>
+<li>Establish a system for maintaining information about open-source
+components that are downloaded and used</li>
+<li>Have auditing systems in place that detect e.g. if you break the
+terms of a license</li>
+</ul>
             </div>
     </div>
   </div>
