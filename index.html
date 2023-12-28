@@ -146,16 +146,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         delivery/deployment</a></li>
         <li><a href="#cicd-tooling" id="toc-cicd-tooling">CI/CD
         Tooling</a></li>
-        <li><a href="#reliablility-engineering"
-        id="toc-reliablility-engineering">Reliablility
+        <li><a href="#reliability-engineering"
+        id="toc-reliability-engineering">Reliability
         Engineering</a></li>
         <li><a href="#devsecops" id="toc-devsecops">DevSecOps</a></li>
         </ul></li>
         <li><a href="#container-technology"
         id="toc-container-technology">2. Container Technology</a>
         <ul>
-        <li><a href="#virualisatoin-vms-and-containers"
-        id="toc-virualisatoin-vms-and-containers">2.1 Virualisatoin:
+        <li><a href="#virtualisation-vms-and-containers"
+        id="toc-virtualisation-vms-and-containers">2.1 Virtualisation:
         VM’s and containers</a></li>
         <li><a href="#container-technologies"
         id="toc-container-technologies">2.2 Container
@@ -234,6 +234,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-agile-project-management">6.3 Agile Project
         Management</a></li>
         </ul></li>
+        <li><a href="#requirements-engineering"
+        id="toc-requirements-engineering">7. Requirements
+        Engineering</a>
+        <ul>
+        <li><a href="#functional-and-non-functional-requirements"
+        id="toc-functional-and-non-functional-requirements">7.1
+        Functional and non-functional requirements</a></li>
+        <li><a href="#requirement-engineering-process"
+        id="toc-requirement-engineering-process">7.2 Requirement
+        Engineering Process</a></li>
+        <li><a href="#requirements-elicitation"
+        id="toc-requirements-elicitation">7.3 Requirements
+        Elicitation</a></li>
+        <li><a href="#requirements-specification"
+        id="toc-requirements-specification">7.4 Requirements
+        Specification</a></li>
+        <li><a href="#requirements-validation"
+        id="toc-requirements-validation">7.5 Requirements
+        validation</a></li>
+        <li><a href="#requirements-change"
+        id="toc-requirements-change">7.6 Requirements change</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -249,8 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 development to production support. Whit the goal of improving and
 shortening the systems development lifecycle.</p>
 <figure>
-<img src="./img/devops.png" alt="Devops lifecycle" />
-<figcaption aria-hidden="true">Devops lifecycle</figcaption>
+<img src="./img/devops.png" alt="DevOps lifecycle" />
+<figcaption aria-hidden="true">DevOps lifecycle</figcaption>
 </figure>
 <h3 id="traditional-development-teams-before-devops">Traditional
 development teams (before DevOps)</h3>
@@ -283,7 +305,7 @@ development teams (before DevOps)</h3>
 <ol type="1">
 <li>Culture and People &gt; Process and tools
 <ul>
-<li>Poeple become product owners, give them trust and
+<li>People become product owners, give them trust and
 responsibility</li>
 </ul></li>
 <li>Automation (infrastructure as code)
@@ -341,7 +363,7 @@ for continuous deployment</h4>
 <li><strong>Artifact repository</strong>: Dockerhub, Artifactory</li>
 <li><strong>Deployment</strong>: Ansible</li>
 </ul>
-<h3 id="reliablility-engineering">Reliablility Engineering</h3>
+<h3 id="reliability-engineering">Reliability Engineering</h3>
 <p>The goal is to have no down-time, design patterns exist for creating
 resilient systems.</p>
 <p>The key is to: Build - Measure - Learn - Repeat!</p>
@@ -355,7 +377,7 @@ under stress.</p>
 <dt><strong>Chaos monkey</strong></dt>
 <dd>
 Introduce random failures in production and see how resilient system is,
-or how fast ingeneers can act upon this problem.
+or how fast engineer can act upon this problem.
 </dd>
 </dl>
 <h3 id="devsecops">DevSecOps</h3>
@@ -366,14 +388,14 @@ secure code.</li>
 <li><strong>Security testing tools integrated in CI/CD
 pipeline</strong>: eg. scanning dependencies/containers for
 vulnerabilities</li>
-<li><strong>Shift-left testing</strong>: Software testing is pefromed
+<li><strong>Shift-left testing</strong>: Software testing is performed
 earlier in lifecycle.</li>
 </ul>
 <h4 id="tools-to-implement-devsecops">Tools to implement DevSecOps</h4>
 <ul>
-<li><strong>SAST - Static Applicaiton Security Testing</strong>
+<li><strong>SAST - Static Application Security Testing</strong>
 <ul>
-<li>Scan proprietary/custom code for erros</li>
+<li>Scan proprietary/custom code for errors</li>
 <li>During the code, build and dev phases of the lifecycle</li>
 </ul></li>
 <li><strong>SCA - Software Component Analysis</strong>
@@ -395,13 +417,13 @@ your system</li>
 </ul></li>
 </ul>
 <h2 id="container-technology">2. Container Technology</h2>
-<h3 id="virualisatoin-vms-and-containers">2.1 Virualisatoin: VM’s and
+<h3 id="virtualisation-vms-and-containers">2.1 Virtualisation: VM’s and
 containers</h3>
 <p><strong>Why is there a need to containerize testing and
 deployment?</strong></p>
 <ul>
 <li>Operation teams must set-up a variety of different runtime engines,
-deal with versionning, …</li>
+deal with versioning, …</li>
 <li>No ability to constrain resources consumed by a single service
 instance</li>
 <li>Lack of isolation between multiple instances on the same
@@ -414,10 +436,10 @@ machine</li>
 <li>❌: Less efficient resource utilization</li>
 <li>❌: Slow deployments</li>
 </ul>
-<h4 id="host-virtualization-vurtual-machines-and-containers">Host
-Virtualization: Vurtual Machines and Containers</h4>
+<h4 id="host-virtualisation-virtual-machines-and-containers">Host
+Virtualisation: Virtual Machines and Containers</h4>
 <dl>
-<dt><strong>Hardware virtualization</strong></dt>
+<dt><strong>Hardware virtualisation</strong></dt>
 <dd>
 Hypervisor arbitrates access to shared hardware. VM’s are completely
 isolated, each VM requires its own OS
@@ -428,7 +450,7 @@ isolated, each VM requires its own OS
 <figcaption aria-hidden="true">Hardware Virtualization</figcaption>
 </figure>
 <dl>
-<dt><strong>Sofware virtualization</strong></dt>
+<dt><strong>Software virtualisation</strong></dt>
 <dd>
 OS kernel allows multiple process spaces. Containers share the host OS
 kernel, each container has its own root file system.
@@ -462,7 +484,7 @@ the Canonical ecosystem.</p>
 <h4 id="docker">Docker</h4>
 <ul>
 <li>Can be thought of as a software logistics provider tool (installing,
-removeing, upgrading and running software)</li>
+removing, upgrading and running software)</li>
 <li>Docker CLI + Deamon
 <ul>
 <li>Builds images, runs and manages containers + REST API</li>
@@ -607,7 +629,7 @@ container and manage local/persistent storage</li>
 <ul>
 <li>runc: cli tools for spanning and running OS-level virt
 container</li>
-<li>kata-runtime: cli tool for spanning hardare-virt container (focus:
+<li>kata-runtime: cli tool for spanning hardware-virt container (focus:
 security)</li>
 </ul></li>
 </ul>
@@ -1352,6 +1374,183 @@ definition commonly used in large companies.</li>
 <li>Agile is geared to new software not software maintenance.</li>
 <li>Agile geared to small co-located teams</li>
 </ul>
+<hr />
+<h2 id="requirements-engineering">7. Requirements Engineering</h2>
+<dl>
+<dt><strong>Requirements Engineering</strong></dt>
+<dd>
+The process of establishing the service that the customer requires from
+a system, and the constraints under which the system operates and is
+developed.
+</dd>
+</dl>
+<p><strong>Types of requirements</strong></p>
+<ul>
+<li>User requirements
+<ul>
+<li>Statements in natural language plus diagrams of the services and its
+operational constraints.</li>
+<li>Written for customer</li>
+</ul></li>
+<li>System requirements
+<ul>
+<li>Structured doc with detailed description of system’s functions,
+services and operational constraints</li>
+<li>Defines what should be implemented so may be part of a contract
+between client and contractor</li>
+</ul></li>
+</ul>
+<h3 id="functional-and-non-functional-requirements">7.1 Functional and
+non-functional requirements</h3>
+<ul>
+<li><strong>Functional requirements</strong>
+<ul>
+<li>Statements of service the system should provide, how it should react
+to certain inputs and how sys should behave in certain situations</li>
+<li>May state what sys should <em>not</em> do</li>
+</ul></li>
+<li><strong>non-functional requirements</strong>
+<ul>
+<li>Constraints on service or functions offered by system (eg. time
+constraints, dev precess, standards, etc…)</li>
+<li>Often applies to sys as a whole rather than individual features or
+services</li>
+</ul></li>
+<li><strong>Domain requirements</strong>
+<ul>
+<li>Constraints on sys from the domain of operations (eg. software for
+airplanes will have domain specific constraints)</li>
+</ul></li>
+</ul>
+<h4 id="non-functional-classification">non-functional
+classification</h4>
+<ul>
+<li>Product requirements: specifies that delivered product should behave
+a particular way (eg. execution speed, reliability, …)</li>
+<li>Organisational requirements: factors in org policies and procedures
+(eg. standards used, techstack, …)</li>
+<li>External requirements: eg. GDRP</li>
+</ul>
+<figure>
+<img src="./img/non-functional-reqs.png"
+alt="non-functional Requirements" />
+<figcaption aria-hidden="true">non-functional Requirements</figcaption>
+</figure>
+<p>Metrics for specifying non-functional requirements: speed, size, ease
+of use, reliability, robustness and portability.</p>
+<h3 id="requirement-engineering-process">7.2 Requirement Engineering
+Process</h3>
+<p>Generic activities common to all RE processes:</p>
+<ol type="1">
+<li>Requirements elicitation</li>
+<li>Requirements analysis</li>
+<li>Requirements validation</li>
+<li>Requirements management</li>
+</ol>
+<blockquote>
+<p>💡: In practice, RE is an iterative process</p>
+</blockquote>
+<figure>
+<img src="./img/req-engin-proces-spiral.png"
+alt="spiral view of requirement engineering process" />
+<figcaption aria-hidden="true">spiral view of requirement engineering
+process</figcaption>
+</figure>
+<h3 id="requirements-elicitation">7.3 Requirements Elicitation</h3>
+<h4 id="process-activities">Process activities</h4>
+<ol type="1">
+<li>Requirements discovery
+<ul>
+<li>interacting with stakeholders to discover requirements</li>
+<li>Domain requirement discovery</li>
+</ul></li>
+<li>Requirements classification and organisation
+<ul>
+<li>Group related requirements in coherent clusters</li>
+</ul></li>
+<li>prioritisation and negotiation
+<ul>
+<li>Prioritising requirements and resolving requirements conflicts</li>
+</ul></li>
+<li>Requirements specification
+<ul>
+<li>Requirements are documented and input into the next round of the
+spiral</li>
+</ul></li>
+</ol>
+<figure>
+<img src="./img/requirement-elicitation.png"
+alt="Requirements Elicitation" />
+<figcaption aria-hidden="true">Requirements Elicitation</figcaption>
+</figure>
+<h4 id="interviewing">Interviewing</h4>
+<ul>
+<li>Closed: interviews based on pre-determined list of questions</li>
+<li>Open: various issues are explored with stakeholders</li>
+</ul>
+<h3 id="requirements-specification">7.4 Requirements Specification</h3>
+<p>The process of writing user and system requirements in a requirements
+document. The user requirements have to be understandable for the
+end-user. System requirements are more detailed. Requirements may also
+be part of a contract for the system development.</p>
+<h3 id="requirements-validation">7.5 Requirements validation</h3>
+<p>Demonstrate that the requirements provided by the customer are the
+requirements the customer really wants. Requirements error costs are
+very high, so verifying that the requirements are good is very
+important.</p>
+<h4 id="requirements-checking">Requirements checking</h4>
+<ul>
+<li><strong>Validity</strong>: Does the system provide the functions
+which best fit customers needs?</li>
+<li><strong>Consistency</strong>: Are there requirement conflicts?</li>
+<li><strong>Completeness</strong>: Are all functions required by the
+customer included?</li>
+<li><strong>Realism</strong>: Is requirement possible given the
+available budget and technology?</li>
+<li><strong>Verifiability</strong>: Can requirements be checked?</li>
+</ul>
+<h4 id="requirements-validation-techniques">Requirements validation
+techniques</h4>
+<ul>
+<li>Requirements reviews
+<ul>
+<li>Regularly manual analysis of requirements</li>
+<li>Both client and contractor should be involved in reviews</li>
+<li>Review checks:
+<ul>
+<li><strong>Verifiability</strong>: is requirement testable</li>
+<li><strong>Comprehensibility</strong>: is requirement well
+understood</li>
+<li><strong>Traceability</strong>: is origin of requirement clearly
+stated</li>
+<li><strong>Adaptability</strong>: Can the requirement be changed
+without large impact on other requirements?</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="requirements-change">7.6 Requirements change</h3>
+<p><strong>Changes are almost inevitable</strong></p>
+<ul>
+<li>New hardware</li>
+<li>New kind of system it might need to interface with</li>
+<li>Business priorities may change</li>
+<li>Legislations may change</li>
+<li>Customer comes under new management (wants other requirements)</li>
+</ul>
+<p><strong>Dealing with changed requirements</strong></p>
+<ul>
+<li>keep track of individual requirements and maintain links between
+dependent requirements so that you can assess the impact of requirements
+changes</li>
+<li>establish a formal process for making change proposals and linking
+these to system requirements</li>
+</ul>
+<p><strong>Decide if a requirement change should be
+accepted</strong></p>
+<figure>
+<img src="./img/requirement-change.png" alt="Requirement change" />
+<figcaption aria-hidden="true">Requirement change</figcaption>
+</figure>
 <hr />
             </div>
     </div>

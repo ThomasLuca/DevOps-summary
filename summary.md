@@ -4,7 +4,7 @@
 
 Practice of operations and development engineers participating *together* in the entire service lifecycle from design through development to production support. Whit the goal of improving and shortening the systems development lifecycle.
 
-![Devops lifecycle](./img/devops.png)
+![DevOps lifecycle](./img/devops.png)
 
 ### Traditional development teams (before DevOps)
 
@@ -31,7 +31,7 @@ This approach led to a lot of *operation mismatch*:
 ### DevOps core values
 
 1. Culture and People > Process and tools
-    - Poeple become product owners, give them trust and responsibility
+    - People become product owners, give them trust and responsibility
 2. Automation (infrastructure as code)
     - Automation is critical as things need to move fast
 3. Measurement (measure everything)
@@ -70,7 +70,7 @@ This approach led to a lot of *operation mismatch*:
 - **Artifact repository**: Dockerhub, Artifactory
 - **Deployment**: Ansible
 
-### Reliablility Engineering
+### Reliability Engineering
 
 The goal is to have no down-time, design patterns exist for creating resilient systems.
 
@@ -81,7 +81,7 @@ The key is to: Build - Measure - Learn - Repeat!
 Chaos Engineering is a discipline that aims to proactively test and improve a system's resilience to unexpected and turbulent conditions. It involves deliberately introducing controlled and planned disruptions into a software or system environment to observe how the system responds under stress.
 
 **Chaos monkey**
-: Introduce random failures in production and see how resilient system is, or how fast ingeneers can act upon this problem.
+: Introduce random failures in production and see how resilient system is, or how fast engineer can act upon this problem.
 
 ### DevSecOps
 
@@ -89,12 +89,12 @@ Extension of DevOps that includes security from the get-go
 
 - **Secure Coding**: Responsibility of the devs to write secure code.
 - **Security testing tools integrated in CI/CD pipeline**: eg. scanning dependencies/containers for vulnerabilities
-- **Shift-left testing**: Software testing is pefromed earlier in lifecycle.
+- **Shift-left testing**: Software testing is performed earlier in lifecycle.
 
 #### Tools to implement DevSecOps
 
-- **SAST - Static Applicaiton Security Testing**
-  - Scan proprietary/custom code for erros
+- **SAST - Static Application Security Testing**
+  - Scan proprietary/custom code for errors
   - During the code, build and dev phases of the lifecycle
 - **SCA - Software Component Analysis**
   - Scan source code and libraries for known vulnerabilities
@@ -109,11 +109,11 @@ Extension of DevOps that includes security from the get-go
 
 ## 2. Container Technology
 
-### 2.1 Virualisatoin: VM's and containers
+### 2.1 Virtualisation: VM's and containers
 
 **Why is there a need to containerize testing and deployment?**
 
-- Operation teams must set-up a variety of different runtime engines, deal with versionning, ...
+- Operation teams must set-up a variety of different runtime engines, deal with versioning, ...
 - No ability to constrain resources consumed by a single service instance
 - Lack of isolation between multiple instances on the same machine
 
@@ -124,14 +124,14 @@ Extension of DevOps that includes security from the get-go
 - ❌: Less efficient resource utilization
 - ❌: Slow deployments
 
-#### Host Virtualization: Vurtual Machines and Containers
+#### Host Virtualisation: Virtual Machines and Containers
 
-**Hardware virtualization**
+**Hardware virtualisation**
 : Hypervisor arbitrates access to shared hardware. VM's are completely isolated, each VM requires its own  OS
 
 ![Hardware Virtualization](./img/hw-virtualization.png)
 
-**Sofware virtualization**
+**Software virtualisation**
 : OS kernel allows multiple process spaces. Containers share the host OS kernel, each container has its own root file system.
 
 ![Software Virtualization](./img/sw-virtualization.png)
@@ -159,7 +159,7 @@ Next generation, build on top of LXC, locked in the Canonical ecosystem.
 
 #### Docker
 
-- Can be thought of as a software logistics provider tool (installing, removeing, upgrading and running software)
+- Can be thought of as a software logistics provider tool (installing, removing, upgrading and running software)
 - Docker CLI + Deamon
   - Builds images, runs and manages containers + REST API
   - Containers can only access their own memory and resources
@@ -264,7 +264,7 @@ Some container orchestration systems:
 
 - Main approaches (OCI runtime-spec compatible)
   - runc: cli tools for spanning and running OS-level virt container
-  - kata-runtime: cli tool for spanning hardare-virt container (focus: security)
+  - kata-runtime: cli tool for spanning hardware-virt container (focus: security)
 
 #### High-level runtime
 
@@ -725,7 +725,125 @@ Tool to oversea progress (continuous, not in sprints). 3 rules:
 #### Problems with Agile
 
 - Development is incompatible with legal approach to contract definition commonly used in large companies.
-- Agile is geared to new software not software maintenance. 
+- Agile is geared to new software not software maintenance.
 - Agile geared to small co-located teams
 
 ---
+
+## 7. Requirements Engineering
+
+**Requirements Engineering**
+: The process of establishing the service that the customer requires from a system, and the constraints under which the system operates and is developed.
+
+**Types of requirements**
+
+- User requirements
+  - Statements in natural language plus diagrams of the services and its operational constraints.
+  - Written for customer
+- System requirements
+  - Structured doc with detailed description of system's functions, services and operational constraints
+  - Defines what should be implemented so may be part of a contract between client and contractor
+
+### 7.1 Functional and non-functional requirements
+
+- **Functional requirements**
+  - Statements of service the system should provide, how it should react to certain inputs and how sys should behave in certain situations
+  - May state what sys should *not* do
+- **non-functional requirements**
+  - Constraints on service or functions offered by system (eg. time constraints, dev precess, standards, etc...)
+  - Often applies to sys as a whole rather than individual features or services
+- **Domain requirements**
+  - Constraints on sys from the domain of operations (eg. software for airplanes will have domain specific constraints)
+
+#### non-functional classification
+
+- Product requirements: specifies that delivered product should behave a particular way (eg. execution speed, reliability, ...)
+- Organisational requirements: factors in org policies and procedures (eg. standards used, techstack, ...)
+- External requirements: eg. GDRP
+
+![non-functional Requirements](./img/non-functional-reqs.png)
+
+Metrics for specifying non-functional requirements: speed, size, ease of use, reliability, robustness and portability.
+
+### 7.2 Requirement Engineering Process
+
+Generic activities common to all RE processes:
+
+1. Requirements elicitation
+2. Requirements analysis
+3. Requirements validation
+4. Requirements management
+
+> 💡: In practice, RE is an iterative process
+
+![spiral view of requirement engineering process](./img/req-engin-proces-spiral.png)
+
+### 7.3 Requirements Elicitation
+
+#### Process activities
+
+1. Requirements discovery
+    - interacting with stakeholders to discover requirements
+    - Domain requirement discovery
+2. Requirements classification and organisation
+    - Group related requirements in coherent clusters
+3. prioritisation and negotiation
+    - Prioritising requirements and resolving requirements conflicts
+4. Requirements specification
+    - Requirements are documented and input into the next round of the spiral
+
+![Requirements Elicitation](./img/requirement-elicitation.png)
+
+#### Interviewing
+
+- Closed: interviews based on pre-determined list of questions
+- Open:  various issues are explored with stakeholders
+
+### 7.4 Requirements Specification
+
+The process of writing user and system requirements in a requirements document. The user requirements have to be understandable for the end-user. System requirements are more detailed. Requirements may also be part of a contract for the system development.
+
+### 7.5 Requirements validation
+
+Demonstrate that the requirements provided by the customer are the requirements the customer really wants. Requirements error costs are very high, so verifying that the requirements are good is very important.
+
+#### Requirements checking
+
+- **Validity**: Does the system provide the functions which best fit customers needs?
+- **Consistency**: Are there requirement conflicts?
+- **Completeness**: Are all functions required by the customer included?
+- **Realism**: Is requirement possible given the available budget and technology?
+- **Verifiability**: Can requirements be checked?
+
+#### Requirements validation techniques
+
+- Requirements reviews
+  - Regularly manual analysis of requirements
+  - Both client and contractor should be involved in reviews
+  - Review checks:
+    - **Verifiability**: is requirement testable
+    - **Comprehensibility**: is requirement well understood
+    - **Traceability**: is origin of requirement clearly stated
+    - **Adaptability**: Can the requirement be changed without large impact on other requirements?
+
+### 7.6 Requirements change
+
+**Changes are almost inevitable**
+
+- New hardware
+- New kind of system it might need to interface with
+- Business priorities may change
+- Legislations may change
+- Customer comes under new management (wants other requirements)
+
+**Dealing with changed requirements**
+
+-  keep track of individual requirements and maintain links between dependent requirements so that you can assess the impact of requirements changes
+-  establish a formal process for making change proposals and linking these to system requirements
+
+**Decide if a requirement change should be accepted**
+
+![Requirement change](./img/requirement-change.png)
+
+---
+
