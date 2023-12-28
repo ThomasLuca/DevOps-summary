@@ -606,3 +606,126 @@ Initial version of system to demonstrate concepts and try out design options.
 
 ---
 
+## 6. Agile Software Development
+
+**Origin of Agile development methods**:
+
+Rapid development and delivery is now often the most important requirement for software systems. Plan-driven development does not meat this requirements.
+
+**Agile development**:
+
+- Program specification, design and implementation are interleaved
+- System developed as series of versions with stakeholder involved in version evaluation.
+- Extensive tool support for development (eg. automated testing)
+- Minimal documentation - focus on working code
+
+**Plan-driven vs Agile development**:
+
+- Plan-driven:
+  - Software engineering based around separate development stages (output of each stage is planned in advance)
+  - waterfall, plan-driven and incremental development are all valuable options.
+  - Iteration occurs within activities
+- Agile:
+  - Specification, design, implementation and testing are interleaved and outputs from the development process are decided through a process of negotiation during the software development process
+
+![Plan-based vs Agile](./img/plan-based-vs-agile.png)
+
+### 6.1 Agile methods
+
+Aim of agile:
+
+- Reduce overhead in software process (eg. by limiting documentation)
+- Allow to respond quickly to changes
+
+#### Agile manifesto
+
+- individuals and interactions >> process and tools
+- working software >> documentation
+- customer collaboration >> contract negotiation
+- responding to change >> following a plan
+
+#### Principle of Agile methods
+
+| Principle   | Description|
+|--------------- | --------------- |
+| Customer involvement | Custormer should be closesly involved (prioritize requirements and evaluate iterations) |
+| Incremental delivery | Software developed in increments (customer specifies which requirements included in next increment) |
+| Poeple not process | Skill of dev team (knowledge about tools) should be exploited -> let them shoose what tech stack |
+| Embrace change | Expect system requirements to change |
+| Maintain simplicity | Focus on simplicity in both process and development |
+
+#### Where is Agile applicable?
+
+- Small to medium-sized projects
+- When there's clear commitment from customer to be involved in process
+- Not a lot of external rules and regulations applicable
+
+### 6.2 Agile development techniques
+
+#### XP: Extreme programming
+
+- New versions may be built several times a day
+- Increments are delivered every 2 weeks
+- All tests must run for every build, build only accepted on successful tests
+
+![Extreme programming release cycle](./img/XP-release-cycle.png)
+
+| Principle or practice  | Description |
+|--------------- | --------------- |
+| Incremental planning   | Requirs are recorded on *story cards*, story included in next release is detmined by priority. Dev breaks story down into *Tasks* |
+| Small releases         | Minimal useful set of functinoality that provides business velue is developed first. Include finished funtionality in frist release |
+| Simple design          | Enough design is carried out to meet the current requirs. and no more |
+| Test-first develpment  | Write unittest for functionality before writing funtionality |
+| Refactoring            | Refactor as soon as imporvements are found |
+| Pair programming       | Work in pair, check eachothers progress |
+| Collective ownership   | Pair of devs work on all areas of system (no island of expretise) |
+| Continious integration | As soon as task is complete -> integrate into whole system |
+| Sustainable pace       | Overtime is not acceptable (reduces code quality and productivity) |
+| On-site customer       | Represtative of customer should be available full time for use of the XP team (for requirs. and reviews) |
+
+### 6.3 Agile Project Management
+
+Goal: deliver software on time within the planned budget.
+
+#### SCRUM
+
+Most used project management method for Agile development. SCRUM focuses on managing iterative development rather than specific agile practices.
+
+Three phases:
+
+1. **Initial phase**: planning phase, establish general objective for design and architecture
+2. **Sprint cycles**: each cycle develops an increment of the system
+3. **Project closure phase**: wrap up project and complete required documentation.
+
+| Scrum term     | Definintion |
+|--------------- | --------------- |
+| Scrum          | A daily meeting of Scrum team that revies progress and goes over work to be done for the day (short face-to-face meeting)|
+| ScrumMaster    | Oversees the Scrum process, guides Scrum teams and comunicates progress to rest of company |
+| Sprint         | A development iteration (2-4 weeks long) |
+| Velocity       | Estimate how much team can cover in a single sprint |
+
+![Scrum sprint cycle](./img/scrum-cycle.png)
+
+- ✅: Product is broken down into manageable chunks
+- ✅: Unstable requirements do not hold up progress
+- ✅: Whole team has visibility on everything
+- ✅: Customers get delivered increments and give feedback
+- ✅: Trust between customer and developers is established
+
+#### Kanban
+
+Tool to oversea progress (continuous, not in sprints). 3 rules:
+
+1. Visualize workflow
+2. Limit WIP
+3. Measure flow
+
+![Kanban board](./img/kanban-board.png)
+
+#### Problems with Agile
+
+- Development is incompatible with legal approach to contract definition commonly used in large companies.
+- Agile is geared to new software not software maintenance. 
+- Agile geared to small co-located teams
+
+---
