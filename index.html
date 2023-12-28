@@ -211,6 +211,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         Observability &amp; analysis: Prometheus, Jaeger,
         Fluentd</a></li>
         </ul></li>
+        <li><a href="#software-development-models"
+        id="toc-software-development-models">5. Software development
+        models</a>
+        <ul>
+        <li><a href="#software-development-models-1"
+        id="toc-software-development-models-1">5.1 Software Development
+        Models</a></li>
+        <li><a href="#coping-with-changes"
+        id="toc-coping-with-changes">5.2 Coping with changes</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -924,6 +934,164 @@ End-to-end distributed tracing: Monitoring and troubleshooting
 transactions in complex distributed systems.
 </dd>
 </dl>
+<hr />
+<h2 id="software-development-models">5. Software development models</h2>
+<dl>
+<dt><strong>Software dev model</strong></dt>
+<dd>
+Structured set of activities required to develop a software system.
+</dd>
+</dl>
+<p>They involve:</p>
+<ul>
+<li><strong>Specification</strong>: defining what the system should
+do</li>
+<li><strong>Design and implementation</strong>: Define the organization
+of the system and implementing it</li>
+<li><strong>Validation</strong>: Checking if it does what the customer
+wants</li>
+<li><strong>Evolution</strong>: changing the system in response to
+changing customer needs</li>
+</ul>
+<dl>
+<dt><strong>Plan-driven process</strong></dt>
+<dd>
+Precesses where all activities are planned in advance and progress is
+measured against plan
+</dd>
+<dt><strong>Agile process</strong></dt>
+<dd>
+Planning is incremental and it is easier to change the process to
+reflect changing customer requirements
+</dd>
+</dl>
+<h3 id="software-development-models-1">5.1 Software Development
+Models</h3>
+<h4 id="waterfall-model">Waterfall model</h4>
+<p>Plan-driven model, separate and distinct phases of specification
+development.</p>
+<figure>
+<img src="./img/devmodel-waterfall.png" alt="Waterfall Model" />
+<figcaption aria-hidden="true">Waterfall Model</figcaption>
+</figure>
+<p>Phases:</p>
+<ol type="1">
+<li><strong>Requirement definition</strong>: eg. What is the budget?
+Must it work in the Cloud?</li>
+<li><strong>System and software design</strong>: eg. making UML
+diagram</li>
+<li><strong>Implementation and unit testing</strong></li>
+<li><strong>Integration and system testing</strong>: Do the different
+components work with each other?</li>
+<li><strong>Operation and maintenance</strong>: maintain the system,
+include maintenance costs in budget!</li>
+</ol>
+<ul>
+<li>❌: Difficult to accommodate change after process is underway
+<ul>
+<li>Only use when requirements are well-understood</li>
+</ul></li>
+<li>❌: A phase has to be complete before moving on to next phase</li>
+<li>✅: When requirements are well defined, this model is typically
+faster</li>
+</ul>
+<h4 id="incremental-development">Incremental development</h4>
+<figure>
+<img src="./img/devmodel-incremental.png" alt="Incremental Model" />
+<figcaption aria-hidden="true">Incremental Model</figcaption>
+</figure>
+<ul>
+<li>✅: Cost of accommodating changing customer requirements is reduced
+<ul>
+<li>Less rewriting of analysis and documentation</li>
+</ul></li>
+<li>✅: easier to get customer feedback on work that has been done</li>
+<li>✅: More rapid delivery and deployment of <em>userful</em> software
+is possible
+<ul>
+<li>Customer can have an earlier functioning app that still lacks some
+less important features.</li>
+</ul></li>
+<li>❌: progress is less visible</li>
+<li>❌: System structure tends to degrade as new increments are added
+<ul>
+<li>Different features may not be designed to work together from the
+get-go</li>
+</ul></li>
+</ul>
+<h4 id="reuse-oriented-development">Reuse-oriented development</h4>
+<p>System that is mostly made from existing components or COTS
+(Commercial-off-the-shelf) systems.</p>
+<figure>
+<img src="./img/devmodel-reuse.png" alt="Reuse Model" />
+<figcaption aria-hidden="true">Reuse Model</figcaption>
+</figure>
+<p>Key phases:</p>
+<ul>
+<li><p>Requirement specification</p></li>
+<li><p>Software discovery and evaluation: eval -&gt; check if software
+does what is advertised</p></li>
+<li><p>Requirement refinement: negotiate with customer, see if potential
+shortcomings are acceptable.</p></li>
+<li><p>Application system configuration</p></li>
+<li><p>Component adaption and integration</p></li>
+<li><p>✅: Reduced cost</p></li>
+<li><p>✅: Reduced risk</p></li>
+<li><p>✅: Fast delivery and deployment</p></li>
+<li><p>❌: Requirement compromises are common</p></li>
+<li><p>❌: Loss of control over evolution of reused system</p></li>
+</ul>
+<h3 id="coping-with-changes">5.2 Coping with changes</h3>
+<p>Changes are inevitable in large software projects. Changes lead to
+rework, so cost of change is dictated by cost of rework and cost of
+implementing new functionality.</p>
+<h4 id="reducing-cost-of-rework">Reducing cost of rework</h4>
+<ul>
+<li><strong>Change avoidance</strong>: anticipate changes in software
+process (eg. Develop prototype to show key-features to customer)</li>
+<li><strong>Change tolerance</strong>: process is designed so that
+changes can be implemented at low cost (eg. incremental
+development)</li>
+</ul>
+<h4 id="software-prototyping">Software prototyping</h4>
+<p>Initial version of system to demonstrate concepts and try out design
+options.</p>
+<ul>
+<li>✅: Improve system usability</li>
+<li>✅: Closer match to users needs</li>
+<li>✅: Reduced development effort</li>
+</ul>
+<figure>
+<img src="./img/prototype-developement.png"
+alt="Prototype development process" />
+<figcaption aria-hidden="true">Prototype development
+process</figcaption>
+</figure>
+<blockquote>
+<p>⚠️: Prototypes should be discarded after development, they don’t form
+a good basis for the final system.</p>
+</blockquote>
+<h4 id="incremental-delivery">Incremental delivery</h4>
+<ul>
+<li>Rather than delivering one final product, deliver in broken down
+increments.</li>
+<li>Implement highest priorities first</li>
+<li>Once development of increment starts, requirements are frozen,
+though requirements for later increments can continue to evolve.</li>
+</ul>
+<figure>
+<img src="./img/incremental-delivery.png" alt="Incremental delivery" />
+<figcaption aria-hidden="true">Incremental delivery</figcaption>
+</figure>
+<ul>
+<li>✅: Customer value can be delivered with each increment -&gt;
+available earlier</li>
+<li>✅: Earlier increment can function as prototype -&gt; help elicit
+additional requirements</li>
+<li>✅: Low risk of project failure</li>
+<li>❌: Most parts of the system require set of basic functionality (big
+increments needed in the beginning)</li>
+</ul>
 <hr />
             </div>
     </div>

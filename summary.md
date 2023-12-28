@@ -498,3 +498,111 @@ ensures images are scanned and free from vulnerabilities, and signs images as tr
 
 ---
 
+## 5. Software development models
+
+**Software dev model**
+: Structured set of activities required to develop a software system.
+
+They involve:
+
+- **Specification**: defining what the system should do
+- **Design and implementation**: Define the organization of the system and implementing it
+- **Validation**: Checking if it does what the customer wants
+- **Evolution**: changing the system in response to changing customer needs
+
+**Plan-driven process**
+: Precesses where all activities are planned in advance and progress is measured against plan
+
+**Agile process**
+: Planning is incremental and it is easier to change the process to reflect changing customer requirements
+
+### 5.1 Software Development Models
+
+#### Waterfall model
+
+Plan-driven model, separate and distinct phases of specification development.
+
+![Waterfall Model](./img/devmodel-waterfall.png)
+
+Phases:
+
+1. **Requirement definition**: eg. What is the budget? Must it work in the Cloud?
+2. **System and software design**: eg. making UML diagram
+3. **Implementation and unit testing**
+4. **Integration and system testing**: Do the different components work with each other?
+5. **Operation and maintenance**: maintain the system, include maintenance costs in budget!
+
+- ❌: Difficult to accommodate change after process is underway
+  - Only use when requirements are well-understood
+- ❌: A phase has to be complete before moving on to next phase
+- ✅: When requirements are well defined, this model is typically faster
+
+#### Incremental development
+
+![Incremental Model](./img/devmodel-incremental.png)
+
+- ✅: Cost of accommodating changing customer requirements is reduced
+  - Less rewriting of analysis and documentation
+- ✅: easier to get customer feedback on work that has been done
+- ✅: More rapid delivery and deployment of *userful* software is possible
+  - Customer can have an earlier functioning app that still lacks some less important features.
+- ❌: progress is less visible
+- ❌: System structure tends to degrade as new increments are added
+  - Different features may not be designed to work together from the get-go
+
+#### Reuse-oriented development
+
+System that is mostly made from existing components or COTS (Commercial-off-the-shelf) systems.
+
+![Reuse Model](./img/devmodel-reuse.png)
+
+Key phases:
+
+- Requirement specification
+- Software discovery and evaluation: eval -> check if software does what is advertised
+- Requirement refinement: negotiate with customer, see if potential shortcomings are acceptable.
+- Application system configuration
+- Component adaption and integration
+
+- ✅: Reduced cost
+- ✅: Reduced risk
+- ✅: Fast delivery and deployment
+- ❌: Requirement compromises are common
+- ❌: Loss of control over evolution of reused system
+
+### 5.2 Coping with changes
+
+Changes are inevitable in large software projects. Changes lead to rework, so cost of change is dictated by cost of rework and cost of implementing new functionality.
+
+#### Reducing cost of rework
+
+- **Change avoidance**: anticipate changes in software process (eg. Develop prototype to show key-features to customer)
+- **Change tolerance**: process is designed so that changes can be implemented at low cost (eg. incremental development)
+
+#### Software prototyping
+
+Initial version of system to demonstrate concepts and try out design options.
+
+- ✅: Improve system usability
+- ✅: Closer match to users needs
+- ✅: Reduced development effort
+
+![Prototype development process](./img/prototype-developement.png)
+
+> ⚠️: Prototypes should be discarded after development, they don't form a good basis for the final system.
+
+#### Incremental delivery
+
+- Rather than delivering one final product, deliver in broken down increments.
+- Implement highest priorities first
+- Once development of increment starts, requirements are frozen, though requirements for later increments can continue to evolve.
+
+![Incremental delivery](./img/incremental-delivery.png)
+
+- ✅: Customer value can be delivered with each increment -> available earlier
+- ✅: Earlier increment can function as prototype -> help elicit additional requirements
+- ✅: Low risk of project failure
+- ❌: Most parts of the system require set of basic functionality (big increments needed in the beginning)
+
+---
+
