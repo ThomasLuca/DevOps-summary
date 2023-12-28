@@ -417,3 +417,84 @@ Some container orchestration systems:
 
 ---
 
+## 4. Cloud Native Computing Foundation (CNCF)
+
+- A Linux Foundation project
+- Goal: help advance container technology and align industry
+- Organizes conferences
+- Provide kubernetes certifications and education programs
+
+### 4.1 Scheduling & Orchestration: Kubernetes
+
+CNCF graduated project -> see chapter: [3. Kubernetes](#kubernetes)
+
+### 4.2 Application definition & image build: HELM
+
+- CLI package manager for K8s allowing devs to more easily configure and deploy packages onto K8s
+- Helm is **Day 1** operator (deployment)
+  - Install or upgrade software deps
+  - Configure software deployment
+  - Fetch software packages from repo
+- K8s is **Day 2** operator (management tasks): monitoring and making backups of stateful/complex workloads
+  - eg. Postgres, Kafka, Cassandra
+
+![Helm and K8s operator](./img/helm-operator.png)
+
+Helm or K8s operator?
+
+- Just installing application -> Helm
+- How much customization is needed?
+  - Default config -> Helm
+  - Special config -> operator
+- How mature is cluster?
+  - First setup: Helm
+  - Advanced: Operator
+
+### 4.3 Database: Vitess and TIKV
+
+### 4.4 Coordiantion & service discovery: CoreDNS & ETCD
+
+#### CoreDNS
+
+Cloud native, authoritative DNS server written in Go. It has a  flexible and plugin-based, extensible request pipeline. So it becomes easy to perform tasks like logging, caching and collecting metric about the DNS server.
+
+![CoreDNS](./img/coredns.png)
+
+### 4.5 Service Proxy: Envoy
+
+Cloud native edge and service proxy.
+
+### 4.6 Service Mesh: Linkerd
+
+**Service Mesh**
+: Makes running services easier and safer by giving you runtime debugging, observability, reliability, and security.
+
+Three basic components:
+
+1. UI
+2. Data plane: Transparent proxies that run next to each service instance (handles traffic from and to service)
+3. control plane: set of services providing aggregation of telemetry data and control data to the data plane proxies
+
+Linkerd exports Prometheus and Grafana dashboards.
+
+![Linkderd](./img/linkerd.png)
+
+### 4.7 Cloud native storage: Rook
+
+Rook turns distributed storage systems into self-managing, self-scaling, self-healing storage services. It automates tasks of a storage administrator.
+
+### 4.8 Container registry: Harbor
+
+Open source registry that secures artifacts with policies and role-based access control,
+ensures images are scanned and free from vulnerabilities, and signs images as trusted
+
+### 4.9 Observability & analysis: Prometheus, Jaeger, Fluentd
+
+**Prometheus**
+: Metrics-based monitoring and alerting stack (all levels of the stack)
+
+**Jaeger**
+: End-to-end distributed tracing: Monitoring and troubleshooting transactions in complex distributed systems.
+
+---
+

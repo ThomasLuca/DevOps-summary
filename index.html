@@ -179,6 +179,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-kubernetes-architecture">3.3 Kubernetes
         Architecture</a></li>
         </ul></li>
+        <li><a href="#cloud-native-computing-foundation-cncf"
+        id="toc-cloud-native-computing-foundation-cncf">4. Cloud Native
+        Computing Foundation (CNCF)</a>
+        <ul>
+        <li><a href="#scheduling-orchestration-kubernetes"
+        id="toc-scheduling-orchestration-kubernetes">4.1 Scheduling
+        &amp; Orchestration: Kubernetes</a></li>
+        <li><a href="#application-definition-image-build-helm"
+        id="toc-application-definition-image-build-helm">4.2 Application
+        definition &amp; image build: HELM</a></li>
+        <li><a href="#database-vitess-and-tikv"
+        id="toc-database-vitess-and-tikv">4.3 Database: Vitess and
+        TIKV</a></li>
+        <li><a href="#coordiantion-service-discovery-coredns-etcd"
+        id="toc-coordiantion-service-discovery-coredns-etcd">4.4
+        Coordiantion &amp; service discovery: CoreDNS &amp;
+        ETCD</a></li>
+        <li><a href="#service-proxy-envoy"
+        id="toc-service-proxy-envoy">4.5 Service Proxy: Envoy</a></li>
+        <li><a href="#service-mesh-linkerd"
+        id="toc-service-mesh-linkerd">4.6 Service Mesh: Linkerd</a></li>
+        <li><a href="#cloud-native-storage-rook"
+        id="toc-cloud-native-storage-rook">4.7 Cloud native storage:
+        Rook</a></li>
+        <li><a href="#container-registry-harbor"
+        id="toc-container-registry-harbor">4.8 Container registry:
+        Harbor</a></li>
+        <li><a href="#observability-analysis-prometheus-jaeger-fluentd"
+        id="toc-observability-analysis-prometheus-jaeger-fluentd">4.9
+        Observability &amp; analysis: Prometheus, Jaeger,
+        Fluentd</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -788,6 +820,110 @@ executes ans manages containers</li>
 <li>Performs connection forwarding or load balancing for Kubernetes
 services</li>
 </ul>
+<hr />
+<h2 id="cloud-native-computing-foundation-cncf">4. Cloud Native
+Computing Foundation (CNCF)</h2>
+<ul>
+<li>A Linux Foundation project</li>
+<li>Goal: help advance container technology and align industry</li>
+<li>Organizes conferences</li>
+<li>Provide kubernetes certifications and education programs</li>
+</ul>
+<h3 id="scheduling-orchestration-kubernetes">4.1 Scheduling &amp;
+Orchestration: Kubernetes</h3>
+<p>CNCF graduated project -&gt; see chapter: <a href="#kubernetes">3.
+Kubernetes</a></p>
+<h3 id="application-definition-image-build-helm">4.2 Application
+definition &amp; image build: HELM</h3>
+<ul>
+<li>CLI package manager for K8s allowing devs to more easily configure
+and deploy packages onto K8s</li>
+<li>Helm is <strong>Day 1</strong> operator (deployment)
+<ul>
+<li>Install or upgrade software deps</li>
+<li>Configure software deployment</li>
+<li>Fetch software packages from repo</li>
+</ul></li>
+<li>K8s is <strong>Day 2</strong> operator (management tasks):
+monitoring and making backups of stateful/complex workloads
+<ul>
+<li>eg. Postgres, Kafka, Cassandra</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/helm-operator.png" alt="Helm and K8s operator" />
+<figcaption aria-hidden="true">Helm and K8s operator</figcaption>
+</figure>
+<p>Helm or K8s operator?</p>
+<ul>
+<li>Just installing application -&gt; Helm</li>
+<li>How much customization is needed?
+<ul>
+<li>Default config -&gt; Helm</li>
+<li>Special config -&gt; operator</li>
+</ul></li>
+<li>How mature is cluster?
+<ul>
+<li>First setup: Helm</li>
+<li>Advanced: Operator</li>
+</ul></li>
+</ul>
+<h3 id="database-vitess-and-tikv">4.3 Database: Vitess and TIKV</h3>
+<h3 id="coordiantion-service-discovery-coredns-etcd">4.4 Coordiantion
+&amp; service discovery: CoreDNS &amp; ETCD</h3>
+<h4 id="coredns">CoreDNS</h4>
+<p>Cloud native, authoritative DNS server written in Go. It has a
+flexible and plugin-based, extensible request pipeline. So it becomes
+easy to perform tasks like logging, caching and collecting metric about
+the DNS server.</p>
+<figure>
+<img src="./img/coredns.png" alt="CoreDNS" />
+<figcaption aria-hidden="true">CoreDNS</figcaption>
+</figure>
+<h3 id="service-proxy-envoy">4.5 Service Proxy: Envoy</h3>
+<p>Cloud native edge and service proxy.</p>
+<h3 id="service-mesh-linkerd">4.6 Service Mesh: Linkerd</h3>
+<dl>
+<dt><strong>Service Mesh</strong></dt>
+<dd>
+Makes running services easier and safer by giving you runtime debugging,
+observability, reliability, and security.
+</dd>
+</dl>
+<p>Three basic components:</p>
+<ol type="1">
+<li>UI</li>
+<li>Data plane: Transparent proxies that run next to each service
+instance (handles traffic from and to service)</li>
+<li>control plane: set of services providing aggregation of telemetry
+data and control data to the data plane proxies</li>
+</ol>
+<p>Linkerd exports Prometheus and Grafana dashboards.</p>
+<figure>
+<img src="./img/linkerd.png" alt="Linkderd" />
+<figcaption aria-hidden="true">Linkderd</figcaption>
+</figure>
+<h3 id="cloud-native-storage-rook">4.7 Cloud native storage: Rook</h3>
+<p>Rook turns distributed storage systems into self-managing,
+self-scaling, self-healing storage services. It automates tasks of a
+storage administrator.</p>
+<h3 id="container-registry-harbor">4.8 Container registry: Harbor</h3>
+<p>Open source registry that secures artifacts with policies and
+role-based access control, ensures images are scanned and free from
+vulnerabilities, and signs images as trusted</p>
+<h3 id="observability-analysis-prometheus-jaeger-fluentd">4.9
+Observability &amp; analysis: Prometheus, Jaeger, Fluentd</h3>
+<dl>
+<dt><strong>Prometheus</strong></dt>
+<dd>
+Metrics-based monitoring and alerting stack (all levels of the stack)
+</dd>
+<dt><strong>Jaeger</strong></dt>
+<dd>
+End-to-end distributed tracing: Monitoring and troubleshooting
+transactions in complex distributed systems.
+</dd>
+</dl>
 <hr />
             </div>
     </div>
