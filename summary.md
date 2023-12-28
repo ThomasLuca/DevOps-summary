@@ -351,18 +351,69 @@ Some container orchestration systems:
 
 ##### Zero-downtime upgrade techniques
 
-1. Rolling update
-  
+1. **Rolling update**
     - ![Rolling update](./img/service-rolling-update.png)
 
-2. Canary release: Have a small numbers of users test the new version
+2. **Canary release**: Have a small numbers of users test the new version
     - ![Canary release](./img/service-canary-release.png)
 
-3. A/B testing: Users randomly get a version, collect business metrics (rather than technical testing)
+3. **A/B testing**: Users randomly get a version, collect business metrics (rather than technical testing)
     - ![A/B testing](./img/service-a-b-testing.png)
 
 ### 3.3 Kubernetes Architecture
 
 ![Kubernetes Architecture](./img/kubernetes-architecture.png)
 
+#### Control Plane
+
+![Control Plane](./img/kubernetes-ctrl-plane.png)
+
+##### Kube-controller-manager
+
+- Primary service/daemon that manages all core component control groups
+- Monitors the cluster state via API server
+- Steer cluster to desired state
+
+##### Kube-scheduler
+
+- Policy-rich engine, tries to place workload on matching resource
+  - Decides which nodes should run which pods
+- Select node for pods to run on
+- Workload requirements example
+  - labels
+  - Affinity/anti-affinity (which services should be grouped)
+  - HW requirements
+
+##### Cloud-Control-Manager
+
+- Daemon that provides cloud-provider specific integration into kubernetes core loop
+- Controllers inside cloud-control-manager
+  - Node controller: created new Node objects when new servers are created
+  - Route controller: configures routes in the cloud
+  - Service controller: integration with load balancers, IP address assignment, health checks
+
+#### Node
+
+**Node**
+: component of the cluster that serves as a worker machine. It can be either a physical machine or a virtual machine and is responsible for running applications, handling containerized workloads, and providing resources necessary for running those workloads
+
+![Kubernetes Node](./img/kubernetes-node.png)
+
+##### Kubelets 
+
+- Node agent responsible for managing the lifecycle of every pod on its host
+- Registers node with API server
+- Kubelet interprets YAML pod manifest
+
+##### Container Runtime Engine
+
+- CRI (Container Runtime Interface) compatible application that executes ans manages containers
+- Supports different container runtimes (Docker, Kata, Containerd, ...)
+
+##### Kube-proxy
+
+- Manages the network rules on each node
+- Performs connection forwarding or load balancing for Kubernetes services
+
+---
 

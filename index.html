@@ -685,23 +685,23 @@ registered on startup and removed on shutdown.
 <h5 id="zero-downtime-upgrade-techniques">Zero-downtime upgrade
 techniques</h5>
 <ol type="1">
-<li><p>Rolling update</p>
+<li><strong>Rolling update</strong>
 <ul>
 <li><figure>
 <img src="./img/service-rolling-update.png" alt="Rolling update" />
 <figcaption aria-hidden="true">Rolling update</figcaption>
 </figure></li>
 </ul></li>
-<li><p>Canary release: Have a small numbers of users test the new
-version</p>
+<li><strong>Canary release</strong>: Have a small numbers of users test
+the new version
 <ul>
 <li><figure>
 <img src="./img/service-canary-release.png" alt="Canary release" />
 <figcaption aria-hidden="true">Canary release</figcaption>
 </figure></li>
 </ul></li>
-<li><p>A/B testing: Users randomly get a version, collect business
-metrics (rather than technical testing)</p>
+<li><strong>A/B testing</strong>: Users randomly get a version, collect
+business metrics (rather than technical testing)
 <ul>
 <li><figure>
 <img src="./img/service-a-b-testing.png" alt="A/B testing" />
@@ -715,6 +715,80 @@ metrics (rather than technical testing)</p>
 alt="Kubernetes Architecture" />
 <figcaption aria-hidden="true">Kubernetes Architecture</figcaption>
 </figure>
+<h4 id="control-plane">Control Plane</h4>
+<figure>
+<img src="./img/kubernetes-ctrl-plane.png" alt="Control Plane" />
+<figcaption aria-hidden="true">Control Plane</figcaption>
+</figure>
+<h5 id="kube-controller-manager">Kube-controller-manager</h5>
+<ul>
+<li>Primary service/daemon that manages all core component control
+groups</li>
+<li>Monitors the cluster state via API server</li>
+<li>Steer cluster to desired state</li>
+</ul>
+<h5 id="kube-scheduler">Kube-scheduler</h5>
+<ul>
+<li>Policy-rich engine, tries to place workload on matching resource
+<ul>
+<li>Decides which nodes should run which pods</li>
+</ul></li>
+<li>Select node for pods to run on</li>
+<li>Workload requirements example
+<ul>
+<li>labels</li>
+<li>Affinity/anti-affinity (which services should be grouped)</li>
+<li>HW requirements</li>
+</ul></li>
+</ul>
+<h5 id="cloud-control-manager">Cloud-Control-Manager</h5>
+<ul>
+<li>Daemon that provides cloud-provider specific integration into
+kubernetes core loop</li>
+<li>Controllers inside cloud-control-manager
+<ul>
+<li>Node controller: created new Node objects when new servers are
+created</li>
+<li>Route controller: configures routes in the cloud</li>
+<li>Service controller: integration with load balancers, IP address
+assignment, health checks</li>
+</ul></li>
+</ul>
+<h4 id="node">Node</h4>
+<dl>
+<dt><strong>Node</strong></dt>
+<dd>
+component of the cluster that serves as a worker machine. It can be
+either a physical machine or a virtual machine and is responsible for
+running applications, handling containerized workloads, and providing
+resources necessary for running those workloads
+</dd>
+</dl>
+<figure>
+<img src="./img/kubernetes-node.png" alt="Kubernetes Node" />
+<figcaption aria-hidden="true">Kubernetes Node</figcaption>
+</figure>
+<h5 id="kubelets">Kubelets</h5>
+<ul>
+<li>Node agent responsible for managing the lifecycle of every pod on
+its host</li>
+<li>Registers node with API server</li>
+<li>Kubelet interprets YAML pod manifest</li>
+</ul>
+<h5 id="container-runtime-engine">Container Runtime Engine</h5>
+<ul>
+<li>CRI (Container Runtime Interface) compatible application that
+executes ans manages containers</li>
+<li>Supports different container runtimes (Docker, Kata, Containerd,
+…)</li>
+</ul>
+<h5 id="kube-proxy">Kube-proxy</h5>
+<ul>
+<li>Manages the network rules on each node</li>
+<li>Performs connection forwarding or load balancing for Kubernetes
+services</li>
+</ul>
+<hr />
             </div>
     </div>
   </div>
