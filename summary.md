@@ -785,8 +785,7 @@ Generic activities common to all RE processes:
 1. Requirements discovery
     - interacting with stakeholders to discover requirements
     - Domain requirement discovery
-2. Requirements classification and organisation
-    - Group related requirements in coherent clusters
+2. Requirements classification and organisation - Group related requirements in coherent clusters
 3. prioritisation and negotiation
     - Prioritising requirements and resolving requirements conflicts
 4. Requirements specification
@@ -1042,4 +1041,136 @@ Let user or consumer test by letting them provide input. There are 3 types of us
 - **Acceptance testing**: customers test system and decide if it is ready to be deployed
 
 ---
+
+## 10. Configuration management
+
+Configuration management concerns the policies, processes and tools for managing changing software systems. CM is necessary to keep track of what changes and component versions have been incorporated into each system version. It is a must when working with a team to control changes made by other devs.
+
+|Term | Explanation|
+|----------------------|----------------------|
+| Baseline	| Collection of component versions that make up a system. Baselines are controlled -> version of components cannot be changed |
+| Branching	| Creation of a new *codeline* from a version in an existing codeline |
+| Codeline	| Set of versions of a software component and other config items on which that component depends|
+| Configuration (version) control | Process of ensuring that versions of sys and components are recorded and mainained |
+| Config item or software config item (SCI)| Anything associated with project that has been placed under config congrol |
+| Mainline	| A sequence of baselines representing a different version of a system |
+| Merging	| Creation of a new version of a software component by merging separate versions in different codelines |
+| Release	| A version of a sys that has been released to customer for use |
+| Repository 	| A shared database of versions of software components and meta-info |
+| System building | Creation of an executable sys version by compiling and linking |
+| Version	| Instance of a config item that differs from other instances of that item |
+| Workspace	| A private work area where software can be modified without affecting other devs |
+
+
+**Multi-version system**: There are always several versions of the system at different stages of development.
+
+![Multi-version system](./img/multi-version-system.png)
+
+### 10.1 Version management
+
+**Version management**
+: The process of keeping track of different versions of software components or configuration items and the system in which these components are used. It can also be thought of as the process of managing codelines and baselines
+
+
+#### Codelines and baselines
+
+- **Codeline**: a sequence of versions of the source code with later version in the sequence derived from earlier versions.
+- **Baseline**: a definition of a specific system. It specifies the component versions that are included in the system + specification of the libraries used, config files, ...
+  - Important when there's a need to recreate a specific version of a complete system. (e.g. WoW Classic did not have to get made from scratch if the devs kept a baseline of the old version of the game)
+
+![Codeline and baseline](./img/codeline-baseline.png)
+
+#### Version control systems
+
+VC systems identify, store and control access to the different versions of components.
+
+There are two types of VC systems:
+
+- **Centralized**: single master repo that maintains all versions that are being developed, [more](#centralized-version-control)
+- **Distributed**: Multiple version of the component repository exist at the same time (e.g. Git), [more](#distributed-version-control)
+
+Key features:
+
+- version and release identification
+- change history recording
+- support for independent development
+- project support
+
+#### Public repository and private workspaces
+
+- The project repo maintains the 'master' version of all components
+- To make modifications, devs copy (check-out) these from the repo into their own workspace and work on these copies
+- When finished, the changed components are returned (checked-in) to the repo
+
+#### Centralized version control 💾
+
+- Dev checks out components or directories of components from the project repo into their private workspace, and work on these copies.
+- When their changed are ready, they check-in the components back to the repo.
+- When another dev also wants to work on a certain (checked-out) component, the VC warns the dev that component has been checked-out by someone else.
+
+![Centralized VC](./img/centralized-vc.png)
+
+#### Distributed version control 💾
+
+- 'Master' repo is created on a server that maintains the code
+- Instead of checking out certain components, a dev creates a clone of the project repo to their own computer.
+- When change is ready, dev `commit` this change and update their private server repo. They may then `push` these changes to the project repo.
+- ✔️: provides backup mechanism
+- ✔️: allows for off-line working
+
+![Distributed VC](./img/distributed-vc.png)
+
+#### Branching and merging
+
+![Branching and merging](./img/branching-merging.png)
+
+### 10.2 System building
+
+**System building**
+: Process of creating complete, executable system by compiling and linking the system components, external libraries, config file, ...
+
+The system build tools and versioning management tool must communicate as the building process involves checking out component versions from the repo managed by the version management system.
+
+#### Build platforms
+
+- Dev system: includes compilers, editors, ...
+- Build server: builds definitive, executable version of the system
+- Target environment: platform on which system is supposed to execute.
+
+![Build platform](./img/build-platform.png)
+
+#### Build system
+
+Functionality:
+
+- Build script generation
+- Version management and system integration
+- Minimal re-compilation
+- Executable system creation
+- Test automation
+- Reporting
+- Documentation generation
+
+![Build system](./img/build-system.png)
+
+#### Agile building 💾
+
+1. Check out mainline system form the version management system into the dev's private workspace
+2. Build the system and run automated test to ensure build system passes all tests
+3. Make the changes to the systems component
+4. Build the system in the private workspace and rerun system tests
+5. Check into build system
+6. Build system on the build server and run the tests
+7. If all is well, commit the changes as a new baseline in the system mainline
+
+![Continuous integration](./img/continuous-integration.png)
+
+> ❗: almost always on exam!
+
+**Continuous integration**
+
+- ✅: Allows problems caused by interaction between devs to be discovered and repaired
+- ✅: Most recent system in mainline is the definitive working system
+- ❌: If system is very large, it may take long to build and test
+- ❌: If the development platform is different from the target platform, it may not be possible to run system tests in the devs private workspace
 

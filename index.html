@@ -281,6 +281,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-release-and-user-testing">9.3 Release and User
         Testing</a></li>
         </ul></li>
+        <li><a href="#configuration-management-1"
+        id="toc-configuration-management-1">10. Configuration
+        management</a>
+        <ul>
+        <li><a href="#version-management"
+        id="toc-version-management">10.1 Version management</a></li>
+        <li><a href="#system-building" id="toc-system-building">10.2
+        System building</a></li>
+        </ul></li>
         </ul></li>
         </ul>
 
@@ -1489,10 +1498,8 @@ process</figcaption>
 <li>interacting with stakeholders to discover requirements</li>
 <li>Domain requirement discovery</li>
 </ul></li>
-<li>Requirements classification and organisation
-<ul>
-<li>Group related requirements in coherent clusters</li>
-</ul></li>
+<li>Requirements classification and organisation - Group related
+requirements in coherent clusters</li>
 <li>prioritisation and negotiation
 <ul>
 <li>Prioritising requirements and resolving requirements conflicts</li>
@@ -1848,6 +1855,252 @@ available to users to allow them to experiment and raise problems.</li>
 decide if it is ready to be deployed</li>
 </ul>
 <hr />
+<h2 id="configuration-management-1">10. Configuration management</h2>
+<p>Configuration management concerns the policies, processes and tools
+for managing changing software systems. CM is necessary to keep track of
+what changes and component versions have been incorporated into each
+system version. It is a must when working with a team to control changes
+made by other devs.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Baseline</td>
+<td>Collection of component versions that make up a system. Baselines
+are controlled -&gt; version of components cannot be changed</td>
+</tr>
+<tr class="even">
+<td>Branching</td>
+<td>Creation of a new <em>codeline</em> from a version in an existing
+codeline</td>
+</tr>
+<tr class="odd">
+<td>Codeline</td>
+<td>Set of versions of a software component and other config items on
+which that component depends</td>
+</tr>
+<tr class="even">
+<td>Configuration (version) control</td>
+<td>Process of ensuring that versions of sys and components are recorded
+and mainained</td>
+</tr>
+<tr class="odd">
+<td>Config item or software config item (SCI)</td>
+<td>Anything associated with project that has been placed under config
+congrol</td>
+</tr>
+<tr class="even">
+<td>Mainline</td>
+<td>A sequence of baselines representing a different version of a
+system</td>
+</tr>
+<tr class="odd">
+<td>Merging</td>
+<td>Creation of a new version of a software component by merging
+separate versions in different codelines</td>
+</tr>
+<tr class="even">
+<td>Release</td>
+<td>A version of a sys that has been released to customer for use</td>
+</tr>
+<tr class="odd">
+<td>Repository</td>
+<td>A shared database of versions of software components and
+meta-info</td>
+</tr>
+<tr class="even">
+<td>System building</td>
+<td>Creation of an executable sys version by compiling and linking</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>Instance of a config item that differs from other instances of that
+item</td>
+</tr>
+<tr class="even">
+<td>Workspace</td>
+<td>A private work area where software can be modified without affecting
+other devs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Multi-version system</strong>: There are always several
+versions of the system at different stages of development.</p>
+<figure>
+<img src="./img/multi-version-system.png" alt="Multi-version system" />
+<figcaption aria-hidden="true">Multi-version system</figcaption>
+</figure>
+<h3 id="version-management">10.1 Version management</h3>
+<dl>
+<dt><strong>Version management</strong></dt>
+<dd>
+The process of keeping track of different versions of software
+components or configuration items and the system in which these
+components are used. It can also be thought of as the process of
+managing codelines and baselines
+</dd>
+</dl>
+<h4 id="codelines-and-baselines">Codelines and baselines</h4>
+<ul>
+<li><strong>Codeline</strong>: a sequence of versions of the source code
+with later version in the sequence derived from earlier versions.</li>
+<li><strong>Baseline</strong>: a definition of a specific system. It
+specifies the component versions that are included in the system +
+specification of the libraries used, config files, …
+<ul>
+<li>Important when there’s a need to recreate a specific version of a
+complete system. (e.g. WoW Classic did not have to get made from scratch
+if the devs kept a baseline of the old version of the game)</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/codeline-baseline.png" alt="Codeline and baseline" />
+<figcaption aria-hidden="true">Codeline and baseline</figcaption>
+</figure>
+<h4 id="version-control-systems">Version control systems</h4>
+<p>VC systems identify, store and control access to the different
+versions of components.</p>
+<p>There are two types of VC systems:</p>
+<ul>
+<li><strong>Centralized</strong>: single master repo that maintains all
+versions that are being developed, <a
+href="#centralized-version-control">more</a></li>
+<li><strong>Distributed</strong>: Multiple version of the component
+repository exist at the same time (e.g. Git), <a
+href="#distributed-version-control">more</a></li>
+</ul>
+<p>Key features:</p>
+<ul>
+<li>version and release identification</li>
+<li>change history recording</li>
+<li>support for independent development</li>
+<li>project support</li>
+</ul>
+<h4 id="public-repository-and-private-workspaces">Public repository and
+private workspaces</h4>
+<ul>
+<li>The project repo maintains the ‘master’ version of all
+components</li>
+<li>To make modifications, devs copy (check-out) these from the repo
+into their own workspace and work on these copies</li>
+<li>When finished, the changed components are returned (checked-in) to
+the repo</li>
+</ul>
+<h4 id="centralized-version-control">Centralized version control 💾</h4>
+<ul>
+<li>Dev checks out components or directories of components from the
+project repo into their private workspace, and work on these
+copies.</li>
+<li>When their changed are ready, they check-in the components back to
+the repo.</li>
+<li>When another dev also wants to work on a certain (checked-out)
+component, the VC warns the dev that component has been checked-out by
+someone else.</li>
+</ul>
+<figure>
+<img src="./img/centralized-vc.png" alt="Centralized VC" />
+<figcaption aria-hidden="true">Centralized VC</figcaption>
+</figure>
+<h4 id="distributed-version-control">Distributed version control 💾</h4>
+<ul>
+<li>‘Master’ repo is created on a server that maintains the code</li>
+<li>Instead of checking out certain components, a dev creates a clone of
+the project repo to their own computer.</li>
+<li>When change is ready, dev <code>commit</code> this change and update
+their private server repo. They may then <code>push</code> these changes
+to the project repo.</li>
+<li>✔️: provides backup mechanism</li>
+<li>✔️: allows for off-line working</li>
+</ul>
+<figure>
+<img src="./img/distributed-vc.png" alt="Distributed VC" />
+<figcaption aria-hidden="true">Distributed VC</figcaption>
+</figure>
+<h4 id="branching-and-merging">Branching and merging</h4>
+<figure>
+<img src="./img/branching-merging.png" alt="Branching and merging" />
+<figcaption aria-hidden="true">Branching and merging</figcaption>
+</figure>
+<h3 id="system-building">10.2 System building</h3>
+<dl>
+<dt><strong>System building</strong></dt>
+<dd>
+Process of creating complete, executable system by compiling and linking
+the system components, external libraries, config file, …
+</dd>
+</dl>
+<p>The system build tools and versioning management tool must
+communicate as the building process involves checking out component
+versions from the repo managed by the version management system.</p>
+<h4 id="build-platforms">Build platforms</h4>
+<ul>
+<li>Dev system: includes compilers, editors, …</li>
+<li>Build server: builds definitive, executable version of the
+system</li>
+<li>Target environment: platform on which system is supposed to
+execute.</li>
+</ul>
+<figure>
+<img src="./img/build-platform.png" alt="Build platform" />
+<figcaption aria-hidden="true">Build platform</figcaption>
+</figure>
+<h4 id="build-system">Build system</h4>
+<p>Functionality:</p>
+<ul>
+<li>Build script generation</li>
+<li>Version management and system integration</li>
+<li>Minimal re-compilation</li>
+<li>Executable system creation</li>
+<li>Test automation</li>
+<li>Reporting</li>
+<li>Documentation generation</li>
+</ul>
+<figure>
+<img src="./img/build-system.png" alt="Build system" />
+<figcaption aria-hidden="true">Build system</figcaption>
+</figure>
+<h4 id="agile-building">Agile building 💾</h4>
+<ol type="1">
+<li>Check out mainline system form the version management system into
+the dev’s private workspace</li>
+<li>Build the system and run automated test to ensure build system
+passes all tests</li>
+<li>Make the changes to the systems component</li>
+<li>Build the system in the private workspace and rerun system
+tests</li>
+<li>Check into build system</li>
+<li>Build system on the build server and run the tests</li>
+<li>If all is well, commit the changes as a new baseline in the system
+mainline</li>
+</ol>
+<figure>
+<img src="./img/continuous-integration.png"
+alt="Continuous integration" />
+<figcaption aria-hidden="true">Continuous integration</figcaption>
+</figure>
+<blockquote>
+<p>❗: almost always on exam!</p>
+</blockquote>
+<p><strong>Continuous integration</strong></p>
+<ul>
+<li>✅: Allows problems caused by interaction between devs to be
+discovered and repaired</li>
+<li>✅: Most recent system in mainline is the definitive working
+system</li>
+<li>❌: If system is very large, it may take long to build and test</li>
+<li>❌: If the development platform is different from the target
+platform, it may not be possible to run system tests in the devs private
+workspace</li>
+</ul>
             </div>
     </div>
   </div>
