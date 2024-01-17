@@ -40,7 +40,7 @@ This approach led to a lot of *operation mismatch*:
 4. Sharing - collaboration - feedback
     - Sharing knowledge between Devs and Ops
 
-### Continuous delivery/deployment
+### Continuous delivery/deployment 💾
 
 - **Continuous integration**: build and test
 - **Continuous delivery**: deploy and integration test
@@ -124,7 +124,7 @@ Extension of DevOps that includes security from the get-go
 - ❌: Less efficient resource utilization
 - ❌: Slow deployments
 
-#### Host Virtualisation: Virtual Machines and Containers
+#### Host Virtualisation: Virtual Machines and Containers 💾
 
 **Hardware virtualisation**
 : Hypervisor arbitrates access to shared hardware. VM's are completely isolated, each VM requires its own  OS
@@ -136,7 +136,7 @@ Extension of DevOps that includes security from the get-go
 
 ![Software Virtualization](./img/sw-virtualization.png)
 
-#### Container as deployable artifact
+#### Container as deployable artifact 💾
 
 ![Container architecture](./img/container-architecture.png)
 
@@ -176,14 +176,14 @@ Without containers, application use the same dependencies (the ones located on t
 
 When using docker, every container will have it's own copy of the required dependencies.
 
-##### Namespaces / Environment independence
+##### Namespaces / Environment independence 💾
 
 - Every running program or container has a unique *PID*
 - PID namespace is set of unique numbers that identify processes
   - Host can have multiple PID namespaces
   - Each PID namespace contains its own PID's
   - Docker created new PID namespace for each container
-- Docker provides **environment independence**
+- Docker provides **environment independence** 💾
   - Within docker, you can run everything independent of other processes on the computer (eg: you don't have to care about existing PID's or other open ports on system)
 
 ##### Environment-Agnostic
@@ -195,13 +195,13 @@ When using docker, every container will have it's own copy of the required depen
     - Docker `env` command can be used to inject variables (like credentials) into the container
 3. Volumes
 
-##### Container states
+##### Container states 💾
 
 ![Docker container states](./img/container-states.png)
 
-##### OS layers in containers
+##### OS layers in containers 💾
 
-**Why is there an OS-layer in a docker container**
+**Why is there an OS-layer in a docker container** 💾
 : Containers contain a very minimalistic version of an OS. This layer is called the `Base Layer`. This layer contains essentials to run the application (like a file system, network, ...). Developers can choose which Base they want (centos, busybox, scratch, ...)
 
 Windows hosts can also have an additional layer for a hypervisor, in this case, every container receives its own Hyper-V kernel.
@@ -233,7 +233,7 @@ ENTRYPOINT ["echo", "Dockerfile demo"]  // Run when container starts
 
 When starting a container from an image, Docker engine will add another layer. This layer will store information added to the container while it was running. If container gets restarted this information will be gone again.
 
-##### Union file system
+##### Union file system 💾
 
 Some layers in a docker image (like the base layers) have their own read-only file-system. On top of that, Docker Engine adds another read-write file-system when building the container. These different layers get merged into one virtual layer (= **UnionFS**).
 
@@ -254,7 +254,7 @@ Some container orchestration systems:
 - Docker orchestration
 - Amazon EC2
 
-### 2.4 Container Ecosystem Discussion
+### 2.4 Container Ecosystem Discussion 💾 💾
 
 #### Low-level
 
@@ -323,12 +323,12 @@ Some container orchestration systems:
 
 ### 3.2 Kubernetes Key Concepts
 
-#### Pods
+#### Pods 💾
 
 - Smallest unit of work of Kubernetes
 - Pods can contain one or more containers, they share volumes, network, namespace and are part of a single context.
 - Serve as a unit of deployment, horizontal scaling and replication
-  - Pods should remain small, usually a main containers per pod plus required sidecar containers
+  - Pods should remain small, usually a main containers per pod plus required **sidecar** containers
 - Are REST objects
 - Are Ephemeral (they can be destroyed anytime and not have fixed network addresses)
 - Can have labels, specifying attributes meaningful to user
@@ -349,7 +349,7 @@ Some container orchestration systems:
 **Service registry**
 : Database of services, their instances and their locations. Instances are registered on startup and removed on shutdown.
 
-##### Zero-downtime upgrade techniques
+##### Zero-downtime upgrade techniques 💾
 
 1. **Rolling update**
     - ![Rolling update](./img/service-rolling-update.png)
@@ -360,11 +360,11 @@ Some container orchestration systems:
 3. **A/B testing**: Users randomly get a version, collect business metrics (rather than technical testing)
     - ![A/B testing](./img/service-a-b-testing.png)
 
-### 3.3 Kubernetes Architecture
+### 3.3 Kubernetes Architecture 💾
 
 ![Kubernetes Architecture](./img/kubernetes-architecture.png)
 
-#### Control Plane
+#### Control Plane 💾
 
 ![Control Plane](./img/kubernetes-ctrl-plane.png)
 
@@ -428,7 +428,7 @@ Some container orchestration systems:
 
 CNCF graduated project -> see chapter: [3. Kubernetes](#kubernetes)
 
-### 4.2 Application definition & image build: HELM
+### 4.2 Application definition & image build: HELM 💾
 
 - CLI package manager for K8s allowing devs to more easily configure and deploy packages onto K8s
 - Helm is **Day 1** operator (deployment)
@@ -440,7 +440,7 @@ CNCF graduated project -> see chapter: [3. Kubernetes](#kubernetes)
 
 ![Helm and K8s operator](./img/helm-operator.png)
 
-Helm or K8s operator?
+Helm or K8s operator? 💾
 
 - Just installing application -> Helm
 - How much customization is needed?
@@ -451,6 +451,8 @@ Helm or K8s operator?
   - Advanced: Operator
 
 ### 4.3 Database: Vitess and TIKV
+
+> ❗: TODO
 
 ### 4.4 Coordiantion & service discovery: CoreDNS & ETCD
 
@@ -518,7 +520,7 @@ They involve:
 
 ### 5.1 Software Development Models
 
-#### Waterfall model
+#### Waterfall model 💾
 
 Plan-driven model, separate and distinct phases of specification development.
 
@@ -537,7 +539,7 @@ Phases:
 - ❌: A phase has to be complete before moving on to next phase
 - ✅: When requirements are well defined, this model is typically faster
 
-#### Incremental development
+#### Incremental development 💾
 
 ![Incremental Model](./img/devmodel-incremental.png)
 
@@ -550,7 +552,7 @@ Phases:
 - ❌: System structure tends to degrade as new increments are added
   - Different features may not be designed to work together from the get-go
 
-#### Reuse-oriented development
+#### Reuse-oriented development 💾
 
 System that is mostly made from existing components or COTS (Commercial-off-the-shelf) systems.
 
@@ -574,7 +576,7 @@ Key phases:
 
 Changes are inevitable in large software projects. Changes lead to rework, so cost of change is dictated by cost of rework and cost of implementing new functionality.
 
-#### Reducing cost of rework
+#### Reducing cost of rework 💾
 
 - **Change avoidance**: anticipate changes in software process (eg. Develop prototype to show key-features to customer)
 - **Change tolerance**: process is designed so that changes can be implemented at low cost (eg. incremental development)
@@ -619,7 +621,7 @@ Rapid development and delivery is now often the most important requirement for s
 - Extensive tool support for development (eg. automated testing)
 - Minimal documentation - focus on working code
 
-**Plan-driven vs Agile development**:
+**Plan-driven vs Agile development 💾**:
 
 - Plan-driven:
   - Software engineering based around separate development stages (output of each stage is planned in advance)
@@ -670,7 +672,7 @@ Aim of agile:
 
 ![Extreme programming release cycle](./img/XP-release-cycle.png)
 
-| Principle or practice  | Description |
+| Principle or practice 💾 | Description |
 |--------------- | --------------- |
 | Incremental planning   | Requirs are recorded on *story cards*, story included in next release is detmined by priority. Dev breaks story down into *Tasks* |
 | Small releases         | Minimal useful set of functinoality that provides business velue is developed first. Include finished funtionality in frist release |
@@ -687,7 +689,7 @@ Aim of agile:
 
 Goal: deliver software on time within the planned budget.
 
-#### SCRUM
+#### SCRUM 💾 
 
 Most used project management method for Agile development. SCRUM focuses on managing iterative development rather than specific agile practices.
 
@@ -704,7 +706,7 @@ Three phases:
 | Sprint         | A development iteration (2-4 weeks long) |
 | Velocity       | Estimate how much team can cover in a single sprint |
 
-![Scrum sprint cycle](./img/scrum-cycle.png)
+![Scrum sprint cycle 💾](./img/scrum-cycle.png)
 
 - ✅: Product is broken down into manageable chunks
 - ✅: Unstable requirements do not hold up progress
@@ -744,7 +746,7 @@ Tool to oversea progress (continuous, not in sprints). 3 rules:
   - Structured doc with detailed description of system's functions, services and operational constraints
   - Defines what should be implemented so may be part of a contract between client and contractor
 
-### 7.1 Functional and non-functional requirements
+### 7.1 Functional and non-functional requirements 💾
 
 - **Functional requirements**
   - Statements of service the system should provide, how it should react to certain inputs and how sys should behave in certain situations
@@ -776,11 +778,11 @@ Generic activities common to all RE processes:
 
 > 💡: In practice, RE is an iterative process
 
-![spiral view of requirement engineering process](./img/req-engin-proces-spiral.png)
+![spiral view of requirement engineering process 💾](./img/req-engin-proces-spiral.png)
 
 ### 7.3 Requirements Elicitation
 
-#### Process activities
+#### Process activities 💾
 
 1. Requirements discovery
     - interacting with stakeholders to discover requirements
@@ -871,7 +873,7 @@ Issues:
 
 Goal: support the system integration process so that devs can access the projects code and documentation in a controlled way, find out what changes have been made, and compile and link components to create a system.
 
-**Configuration management activities**
+**Configuration management activities 💾**
 
 - **Version management**: Keep track of different software components and coordinate development by several programmers.
 - **System integration**: Help devs define which versions of components are used, and config to build system automatically
@@ -879,7 +881,7 @@ Goal: support the system integration process so that devs can access the project
 
 ![Config management tool interaction](./img/config-managemt-tool-interaction.png)
 
-#### Host-target development
+#### Host-target development 💾
 
 Development machine usually has different installed software than execution machine.
 
@@ -923,7 +925,7 @@ Program testing goals:
 
 ![Input-output model](./img/input-output-testing.png)
 
-**Inspections vs testing**
+**Inspections vs testing 💾**
 
 - **Software testing**: Concerned with exercising and observing product behavior (dynamic verification)
 - **Software inspections**: Concerned with analysis of the static system representation to discover problems (static verification)
@@ -939,7 +941,7 @@ Program testing goals:
 
 > ⚠️: Inspections and testing are complementary, both should be used
 
-**White Box vs Black Box testing**:
+**White Box vs Black Box testing 💾**:
 
 - White Box: Tester has knowledge about the system internals by looking at code
 - Black Box: Tester has no knowledge about internals
@@ -990,7 +992,7 @@ The blue surface means bad data. Bad input results in bad outputs.
   - Design inputs that cause input buffers to overflow
   - Repeat the same series of inputs a number of times (to check if buffers clear before new iteration)
 
-### 9.2 Test-driven development
+### 9.2 Test-driven development 💾
 
 - TTD: inter-leave testing and code development
 - Write test before feature
@@ -1046,7 +1048,7 @@ Let user or consumer test by letting them provide input. There are 3 types of us
 
 Configuration management concerns the policies, processes and tools for managing changing software systems. CM is necessary to keep track of what changes and component versions have been incorporated into each system version. It is a must when working with a team to control changes made by other devs.
 
-|Term | Explanation|
+| Term 💾 | Explanation|
 |----------------------|----------------------|
 | Baseline	| Collection of component versions that make up a system. Baselines are controlled -> version of components cannot be changed |
 | Branching	| Creation of a new *codeline* from a version in an existing codeline |

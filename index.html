@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-devops-core-values">DevOps core values</a></li>
         <li><a href="#continuous-deliverydeployment"
         id="toc-continuous-deliverydeployment">Continuous
-        delivery/deployment</a></li>
+        delivery/deployment 💾</a></li>
         <li><a href="#cicd-tooling" id="toc-cicd-tooling">CI/CD
         Tooling</a></li>
         <li><a href="#reliability-engineering"
@@ -165,7 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         Management/Orchestration</a></li>
         <li><a href="#container-ecosystem-discussion"
         id="toc-container-ecosystem-discussion">2.4 Container Ecosystem
-        Discussion</a></li>
+        Discussion 💾 💾</a></li>
         </ul></li>
         <li><a href="#kubernetes" id="toc-kubernetes">3. Kubernetes</a>
         <ul>
@@ -176,8 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         id="toc-kubernetes-key-concepts">3.2 Kubernetes Key
         Concepts</a></li>
         <li><a href="#kubernetes-architecture"
-        id="toc-kubernetes-architecture">3.3 Kubernetes
-        Architecture</a></li>
+        id="toc-kubernetes-architecture">3.3 Kubernetes Architecture
+        💾</a></li>
         </ul></li>
         <li><a href="#cloud-native-computing-foundation-cncf"
         id="toc-cloud-native-computing-foundation-cncf">4. Cloud Native
@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         &amp; Orchestration: Kubernetes</a></li>
         <li><a href="#application-definition-image-build-helm"
         id="toc-application-definition-image-build-helm">4.2 Application
-        definition &amp; image build: HELM</a></li>
+        definition &amp; image build: HELM 💾</a></li>
         <li><a href="#database-vitess-and-tikv"
         id="toc-database-vitess-and-tikv">4.3 Database: Vitess and
         TIKV</a></li>
@@ -240,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <ul>
         <li><a href="#functional-and-non-functional-requirements"
         id="toc-functional-and-non-functional-requirements">7.1
-        Functional and non-functional requirements</a></li>
+        Functional and non-functional requirements 💾</a></li>
         <li><a href="#requirement-engineering-process"
         id="toc-requirement-engineering-process">7.2 Requirement
         Engineering Process</a></li>
@@ -275,8 +275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li><a href="#development-testing"
         id="toc-development-testing">9.1 Development testing</a></li>
         <li><a href="#test-driven-development"
-        id="toc-test-driven-development">9.2 Test-driven
-        development</a></li>
+        id="toc-test-driven-development">9.2 Test-driven development
+        💾</a></li>
         <li><a href="#release-and-user-testing"
         id="toc-release-and-user-testing">9.3 Release and User
         Testing</a></li>
@@ -356,8 +356,8 @@ responsibility</li>
 <li>Sharing knowledge between Devs and Ops</li>
 </ul></li>
 </ol>
-<h3 id="continuous-deliverydeployment">Continuous
-delivery/deployment</h3>
+<h3 id="continuous-deliverydeployment">Continuous delivery/deployment
+💾</h3>
 <ul>
 <li><strong>Continuous integration</strong>: build and test</li>
 <li><strong>Continuous delivery</strong>: deploy and integration
@@ -471,7 +471,7 @@ machine</li>
 <li>❌: Slow deployments</li>
 </ul>
 <h4 id="host-virtualisation-virtual-machines-and-containers">Host
-Virtualisation: Virtual Machines and Containers</h4>
+Virtualisation: Virtual Machines and Containers 💾</h4>
 <dl>
 <dt><strong>Hardware virtualisation</strong></dt>
 <dd>
@@ -495,7 +495,7 @@ kernel, each container has its own root file system.
 <figcaption aria-hidden="true">Software Virtualization</figcaption>
 </figure>
 <h4 id="container-as-deployable-artifact">Container as deployable
-artifact</h4>
+artifact 💾</h4>
 <figure>
 <img src="./img/container-architecture.png"
 alt="Container architecture" />
@@ -540,7 +540,7 @@ applications require different versions of the dependencies.</p>
 <p>When using docker, every container will have it’s own copy of the
 required dependencies.</p>
 <h5 id="namespaces-environment-independence">Namespaces / Environment
-independence</h5>
+independence 💾</h5>
 <ul>
 <li>Every running program or container has a unique <em>PID</em></li>
 <li>PID namespace is set of unique numbers that identify processes
@@ -549,7 +549,7 @@ independence</h5>
 <li>Each PID namespace contains its own PID’s</li>
 <li>Docker created new PID namespace for each container</li>
 </ul></li>
-<li>Docker provides <strong>environment independence</strong>
+<li>Docker provides <strong>environment independence</strong> 💾
 <ul>
 <li>Within docker, you can run everything independent of other processes
 on the computer (eg: you don’t have to care about existing PID’s or
@@ -571,14 +571,15 @@ contains</li>
 </ul></li>
 <li>Volumes</li>
 </ol>
-<h5 id="container-states">Container states</h5>
+<h5 id="container-states">Container states 💾</h5>
 <figure>
 <img src="./img/container-states.png" alt="Docker container states" />
 <figcaption aria-hidden="true">Docker container states</figcaption>
 </figure>
-<h5 id="os-layers-in-containers">OS layers in containers</h5>
+<h5 id="os-layers-in-containers">OS layers in containers 💾</h5>
 <dl>
-<dt><strong>Why is there an OS-layer in a docker container</strong></dt>
+<dt><strong>Why is there an OS-layer in a docker container</strong>
+💾</dt>
 <dd>
 Containers contain a very minimalistic version of an OS. This layer is
 called the <code>Base Layer</code>. This layer contains essentials to
@@ -621,7 +622,7 @@ class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href
 another layer. This layer will store information added to the container
 while it was running. If container gets restarted this information will
 be gone again.</p>
-<h5 id="union-file-system">Union file system</h5>
+<h5 id="union-file-system">Union file system 💾</h5>
 <p>Some layers in a docker image (like the base layers) have their own
 read-only file-system. On top of that, Docker Engine adds another
 read-write file-system when building the container. These different
@@ -650,7 +651,7 @@ multiple containers on a cluster of nodes.</p>
 <li>Amazon EC2</li>
 </ul>
 <h3 id="container-ecosystem-discussion">2.4 Container Ecosystem
-Discussion</h3>
+Discussion 💾 💾</h3>
 <h4 id="low-level">Low-level</h4>
 <ul>
 <li><strong>Low-level runtime</strong>:
@@ -751,7 +752,7 @@ from log file after n minutes)</li>
 <li>! use the same API across bare metal and every cloud provider</li>
 </ul>
 <h3 id="kubernetes-key-concepts">3.2 Kubernetes Key Concepts</h3>
-<h4 id="pods">Pods</h4>
+<h4 id="pods">Pods 💾</h4>
 <ul>
 <li>Smallest unit of work of Kubernetes</li>
 <li>Pods can contain one or more containers, they share volumes,
@@ -759,7 +760,7 @@ network, namespace and are part of a single context.</li>
 <li>Serve as a unit of deployment, horizontal scaling and replication
 <ul>
 <li>Pods should remain small, usually a main containers per pod plus
-required sidecar containers</li>
+required <strong>sidecar</strong> containers</li>
 </ul></li>
 <li>Are REST objects</li>
 <li>Are Ephemeral (they can be destroyed anytime and not have fixed
@@ -794,7 +795,7 @@ registered on startup and removed on shutdown.
 </dd>
 </dl>
 <h5 id="zero-downtime-upgrade-techniques">Zero-downtime upgrade
-techniques</h5>
+techniques 💾</h5>
 <ol type="1">
 <li><strong>Rolling update</strong>
 <ul>
@@ -820,13 +821,13 @@ business metrics (rather than technical testing)
 </figure></li>
 </ul></li>
 </ol>
-<h3 id="kubernetes-architecture">3.3 Kubernetes Architecture</h3>
+<h3 id="kubernetes-architecture">3.3 Kubernetes Architecture 💾</h3>
 <figure>
 <img src="./img/kubernetes-architecture.png"
 alt="Kubernetes Architecture" />
 <figcaption aria-hidden="true">Kubernetes Architecture</figcaption>
 </figure>
-<h4 id="control-plane">Control Plane</h4>
+<h4 id="control-plane">Control Plane 💾</h4>
 <figure>
 <img src="./img/kubernetes-ctrl-plane.png" alt="Control Plane" />
 <figcaption aria-hidden="true">Control Plane</figcaption>
@@ -913,7 +914,7 @@ Orchestration: Kubernetes</h3>
 <p>CNCF graduated project -&gt; see chapter: <a href="#kubernetes">3.
 Kubernetes</a></p>
 <h3 id="application-definition-image-build-helm">4.2 Application
-definition &amp; image build: HELM</h3>
+definition &amp; image build: HELM 💾</h3>
 <ul>
 <li>CLI package manager for K8s allowing devs to more easily configure
 and deploy packages onto K8s</li>
@@ -933,7 +934,7 @@ monitoring and making backups of stateful/complex workloads
 <img src="./img/helm-operator.png" alt="Helm and K8s operator" />
 <figcaption aria-hidden="true">Helm and K8s operator</figcaption>
 </figure>
-<p>Helm or K8s operator?</p>
+<p>Helm or K8s operator? 💾</p>
 <ul>
 <li>Just installing application -&gt; Helm</li>
 <li>How much customization is needed?
@@ -948,6 +949,9 @@ monitoring and making backups of stateful/complex workloads
 </ul></li>
 </ul>
 <h3 id="database-vitess-and-tikv">4.3 Database: Vitess and TIKV</h3>
+<blockquote>
+<p>❗: TODO</p>
+</blockquote>
 <h3 id="coordiantion-service-discovery-coredns-etcd">4.4 Coordiantion
 &amp; service discovery: CoreDNS &amp; ETCD</h3>
 <h4 id="coredns">CoreDNS</h4>
@@ -1036,7 +1040,7 @@ reflect changing customer requirements
 </dl>
 <h3 id="software-development-models-1">5.1 Software Development
 Models</h3>
-<h4 id="waterfall-model">Waterfall model</h4>
+<h4 id="waterfall-model">Waterfall model 💾</h4>
 <p>Plan-driven model, separate and distinct phases of specification
 development.</p>
 <figure>
@@ -1064,7 +1068,7 @@ include maintenance costs in budget!</li>
 <li>✅: When requirements are well defined, this model is typically
 faster</li>
 </ul>
-<h4 id="incremental-development">Incremental development</h4>
+<h4 id="incremental-development">Incremental development 💾</h4>
 <figure>
 <img src="./img/devmodel-incremental.png" alt="Incremental Model" />
 <figcaption aria-hidden="true">Incremental Model</figcaption>
@@ -1088,7 +1092,7 @@ less important features.</li>
 get-go</li>
 </ul></li>
 </ul>
-<h4 id="reuse-oriented-development">Reuse-oriented development</h4>
+<h4 id="reuse-oriented-development">Reuse-oriented development 💾</h4>
 <p>System that is mostly made from existing components or COTS
 (Commercial-off-the-shelf) systems.</p>
 <figure>
@@ -1114,7 +1118,7 @@ shortcomings are acceptable.</p></li>
 <p>Changes are inevitable in large software projects. Changes lead to
 rework, so cost of change is dictated by cost of rework and cost of
 implementing new functionality.</p>
-<h4 id="reducing-cost-of-rework">Reducing cost of rework</h4>
+<h4 id="reducing-cost-of-rework">Reducing cost of rework 💾</h4>
 <ul>
 <li><strong>Change avoidance</strong>: anticipate changes in software
 process (eg. Develop prototype to show key-features to customer)</li>
@@ -1176,7 +1180,7 @@ version evaluation.</li>
 <li>Extensive tool support for development (eg. automated testing)</li>
 <li>Minimal documentation - focus on working code</li>
 </ul>
-<p><strong>Plan-driven vs Agile development</strong>:</p>
+<p><strong>Plan-driven vs Agile development 💾</strong>:</p>
 <ul>
 <li>Plan-driven:
 <ul>
@@ -1278,7 +1282,7 @@ cycle</figcaption>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Principle or practice</th>
+<th>Principle or practice 💾</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1334,7 +1338,7 @@ the XP team (for requirs. and reviews)</td>
 </table>
 <h3 id="agile-project-management">6.3 Agile Project Management</h3>
 <p>Goal: deliver software on time within the planned budget.</p>
-<h4 id="scrum">SCRUM</h4>
+<h4 id="scrum">SCRUM 💾</h4>
 <p>Most used project management method for Agile development. SCRUM
 focuses on managing iterative development rather than specific agile
 practices.</p>
@@ -1380,8 +1384,8 @@ progress to rest of company</td>
 </tbody>
 </table>
 <figure>
-<img src="./img/scrum-cycle.png" alt="Scrum sprint cycle" />
-<figcaption aria-hidden="true">Scrum sprint cycle</figcaption>
+<img src="./img/scrum-cycle.png" alt="Scrum sprint cycle 💾" />
+<figcaption aria-hidden="true">Scrum sprint cycle 💾</figcaption>
 </figure>
 <ul>
 <li>✅: Product is broken down into manageable chunks</li>
@@ -1435,7 +1439,7 @@ between client and contractor</li>
 </ul></li>
 </ul>
 <h3 id="functional-and-non-functional-requirements">7.1 Functional and
-non-functional requirements</h3>
+non-functional requirements 💾</h3>
 <ul>
 <li><strong>Functional requirements</strong>
 <ul>
@@ -1486,12 +1490,12 @@ Process</h3>
 </blockquote>
 <figure>
 <img src="./img/req-engin-proces-spiral.png"
-alt="spiral view of requirement engineering process" />
+alt="spiral view of requirement engineering process 💾" />
 <figcaption aria-hidden="true">spiral view of requirement engineering
-process</figcaption>
+process 💾</figcaption>
 </figure>
 <h3 id="requirements-elicitation">7.3 Requirements Elicitation</h3>
-<h4 id="process-activities">Process activities</h4>
+<h4 id="process-activities">Process activities 💾</h4>
 <ol type="1">
 <li>Requirements discovery
 <ul>
@@ -1618,7 +1622,7 @@ The process of managing a changing software system.
 the projects code and documentation in a controlled way, find out what
 changes have been made, and compile and link components to create a
 system.</p>
-<p><strong>Configuration management activities</strong></p>
+<p><strong>Configuration management activities 💾</strong></p>
 <ul>
 <li><strong>Version management</strong>: Keep track of different
 software components and coordinate development by several
@@ -1634,7 +1638,7 @@ alt="Config management tool interaction" />
 <figcaption aria-hidden="true">Config management tool
 interaction</figcaption>
 </figure>
-<h4 id="host-target-development">Host-target development</h4>
+<h4 id="host-target-development">Host-target development 💾</h4>
 <p>Development machine usually has different installed software than
 execution machine.</p>
 <figure>
@@ -1685,7 +1689,7 @@ to see if software does not conform to its specifications.</li>
 <img src="./img/input-output-testing.png" alt="Input-output model" />
 <figcaption aria-hidden="true">Input-output model</figcaption>
 </figure>
-<p><strong>Inspections vs testing</strong></p>
+<p><strong>Inspections vs testing 💾</strong></p>
 <ul>
 <li><strong>Software testing</strong>: Concerned with exercising and
 observing product behavior (dynamic verification)</li>
@@ -1715,7 +1719,7 @@ maintainability</li>
 <p>⚠️: Inspections and testing are complementary, both should be
 used</p>
 </blockquote>
-<p><strong>White Box vs Black Box testing</strong>:</p>
+<p><strong>White Box vs Black Box testing 💾</strong>:</p>
 <ul>
 <li>White Box: Tester has knowledge about the system internals by
 looking at code</li>
@@ -1791,7 +1795,7 @@ tested</li>
 buffers clear before new iteration)</li>
 </ul></li>
 </ul>
-<h3 id="test-driven-development">9.2 Test-driven development</h3>
+<h3 id="test-driven-development">9.2 Test-driven development 💾</h3>
 <ul>
 <li>TTD: inter-leave testing and code development</li>
 <li>Write test before feature</li>
@@ -1868,7 +1872,7 @@ made by other devs.</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Term</th>
+<th>Term 💾</th>
 <th>Explanation</th>
 </tr>
 </thead>
