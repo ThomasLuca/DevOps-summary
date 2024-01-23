@@ -127,7 +127,7 @@ Extension of DevOps that includes security from the get-go
 #### Host Virtualisation: Virtual Machines and Containers 💾
 
 **Hardware virtualisation**
-: Hypervisor arbitrates access to shared hardware. VM's are completely isolated, each VM requires its own  OS
+: Hypervisor arbitrates access to shared hardware. VM's are completely isolated, each VM eequires its own  OS
 
 ![Hardware Virtualization](./img/hw-virtualization.png)
 
@@ -142,7 +142,7 @@ Extension of DevOps that includes security from the get-go
 
 - Encapsulation
 - Isolation
-- Resource contraints
+- Resource constraints
 - No virt hardware
 - lightweight
 - fast boot
@@ -263,8 +263,8 @@ Some container orchestration systems:
   - Can't: create network, manage images, prepare environment for container and manage local/persistent storage
 
 - Main approaches (OCI runtime-spec compatible)
-  - runc: cli tools for spanning and running OS-level virt container
-  - kata-runtime: cli tool for spanning hardware-virt container (focus: security)
+  - runc: cli tools for spawning and running OS-level virt container
+  - kata-runtime: cli tool for spawning hardware-virt container (focus: security)
 
 #### High-level runtime
 
@@ -399,7 +399,7 @@ Some container orchestration systems:
 
 ![Kubernetes Node](./img/kubernetes-node.png)
 
-##### Kubelets 
+##### Kubelets
 
 - Node agent responsible for managing the lifecycle of every pod on its host
 - Registers node with API server
@@ -407,7 +407,7 @@ Some container orchestration systems:
 
 ##### Container Runtime Engine
 
-- CRI (Container Runtime Interface) compatible application that executes ans manages containers
+- CRI (Container Runtime Interface) compatible application that executes and manages containers
 - Supports different container runtimes (Docker, Kata, Containerd, ...)
 
 ##### Kube-proxy
@@ -513,7 +513,7 @@ They involve:
 - **Evolution**: changing the system in response to changing customer needs
 
 **Plan-driven process**
-: Precesses where all activities are planned in advance and progress is measured against plan
+: Processes where all activities are planned in advance and progress is measured against plan
 
 **Agile process**
 : Planning is incremental and it is easier to change the process to reflect changing customer requirements
@@ -674,10 +674,10 @@ Aim of agile:
 
 | Principle or practice 💾 | Description |
 |--------------- | --------------- |
-| Incremental planning   | Requirs are recorded on *story cards*, story included in next release is detmined by priority. Dev breaks story down into *Tasks* |
+| Incremental planning   | Requirements are recorded on *story cards*, story included in next release is detmined by priority. Dev breaks story down into *Tasks* |
 | Small releases         | Minimal useful set of functinoality that provides business velue is developed first. Include finished funtionality in frist release |
 | Simple design          | Enough design is carried out to meet the current requirs. and no more |
-| Test-first develpment  | Write unittest for functionality before writing funtionality |
+| Test-first develpment  | Write unittest for functionality before writing functionality |
 | Refactoring            | Refactor as soon as imporvements are found |
 | Pair programming       | Work in pair, check eachothers progress |
 | Collective ownership   | Pair of devs work on all areas of system (no island of expretise) |
@@ -689,7 +689,7 @@ Aim of agile:
 
 Goal: deliver software on time within the planned budget.
 
-#### SCRUM 💾 
+#### SCRUM 💾
 
 Most used project management method for Agile development. SCRUM focuses on managing iterative development rather than specific agile practices.
 
@@ -701,7 +701,7 @@ Three phases:
 
 | Scrum term     | Definintion |
 |--------------- | --------------- |
-| Scrum          | A daily meeting of Scrum team that revies progress and goes over work to be done for the day (short face-to-face meeting)|
+| Scrum          | A daily meeting of Scrum team that reviews progress and goes over work to be done for the day (short face-to-face meeting)|
 | ScrumMaster    | Oversees the Scrum process, guides Scrum teams and comunicates progress to rest of company |
 | Sprint         | A development iteration (2-4 weeks long) |
 | Velocity       | Estimate how much team can cover in a single sprint |
@@ -866,7 +866,7 @@ Issues:
 3. **The component level**: Reuse objects and object classes
 4. **The system level (COTS)**: Reuse entire application system
 
-#### Configuration management 
+#### Configuration management
 
 **Configuration management**
 : The process of managing a changing software system.
@@ -1063,7 +1063,6 @@ Configuration management concerns the policies, processes and tools for managing
 | Version	| Instance of a config item that differs from other instances of that item |
 | Workspace	| A private work area where software can be modified without affecting other devs |
 
-
 **Multi-version system**: There are always several versions of the system at different stages of development.
 
 ![Multi-version system](./img/multi-version-system.png)
@@ -1072,7 +1071,6 @@ Configuration management concerns the policies, processes and tools for managing
 
 **Version management**
 : The process of keeping track of different versions of software components or configuration items and the system in which these components are used. It can also be thought of as the process of managing codelines and baselines
-
 
 #### Codelines and baselines
 
@@ -1175,4 +1173,3 @@ Functionality:
 - ✅: Most recent system in mainline is the definitive working system
 - ❌: If system is very large, it may take long to build and test
 - ❌: If the development platform is different from the target platform, it may not be possible to run system tests in the devs private workspace
-
